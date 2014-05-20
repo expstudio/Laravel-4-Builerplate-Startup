@@ -1,0 +1,26 @@
+{
+    "name": "pitchanon/facebook-connect",
+    "description": "A vendor facebook connect package",
+    "keywords": ["laravel", "vendor", "facebook"],
+    "homepage": "https://github.com/Pitchanon/Laravel4-FacebookConnect",
+    "type": "library",
+    "license": "GNU General Public License (GPL)",
+    "authors": [
+        {
+            "name": "Pitchanon D.",
+            "email": "Pitchanon.d@gmail.com",
+            "homepage": "https://github.com/Pitchanon",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "illuminate/support": "4.x"
+    },
+    "autoload": {
+        "psr-0": {
+            "Pitchanon\\FacebookConnect": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}
