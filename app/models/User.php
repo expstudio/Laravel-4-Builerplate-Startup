@@ -80,4 +80,8 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 		return $this->email;
 	}
 
+
+	public function metas(){
+    	return $this->hasMany('UserMeta', 'user_id');
+  	}
 }

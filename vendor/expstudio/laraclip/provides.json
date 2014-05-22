@@ -1,0 +1,7 @@
+{
+  "providers": [
+    "Expstudio\LaraClip\LaraClipServiceProvider",
+  ],
+  "aliases" : [
+  ]
+}

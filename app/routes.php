@@ -12,4 +12,12 @@
 */
 
 Route::get('/', 'HomeController@showWelcome');
-Route::get('/viewer/{id}', 'ViewerController@index');
+
+Route::get('admin', array('as' => 'admin..dashboard.index', 'uses' => 'admin\DashboardController@index'));
+
+Route::resource('/pages', 'PagesController');
+
+Route::group(array('prefix' => 'admin'), function() {
+	Route::resource('/pages', 'admin\PagesController');
+	Route::resource('/settings', 'admin\SettingsController');
+});

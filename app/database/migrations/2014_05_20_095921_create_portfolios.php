@@ -19,7 +19,7 @@ class CreatePortfolios extends Migration {
 			$table->string('preview_path')->nullable();
 			$table->string('site_url')->nullable();
 			$table->text('content');
-			$table->text('tags');			
+			$table->text('tags')->nullable();
 			$table->string("cover_file_name")->nullable();
 			$table->integer("cover_file_size")->nullable();
 			$table->string("cover_content_type")->nullable();
@@ -39,6 +39,9 @@ class CreatePortfolios extends Migration {
 			$table->integer("mobile_file_size")->nullable();
 			$table->string("mobile_content_type")->nullable();
 			$table->timestamp("mobile_updated_at")->nullable();
+			
+			$table->string('slug')->nullable()->index();
+			$table->integer('user_id')->unsigned();
 			$table->timestamps();
 		});
 	}

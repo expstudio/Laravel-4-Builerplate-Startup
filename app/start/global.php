@@ -78,4 +78,19 @@ App::down(function()
 |
 */
 
+Page::saving(function($page)
+{
+  $page->slug = Str::slug($page->title);
+});
+
+Post::saving(function($post)
+{
+  $post->slug = Str::slug($post->title);
+});
+
+Portfolio::saving(function($portfolio)
+{
+  $portfolio->slug = Str::slug($portfolio->title);
+});
+
 require app_path().'/filters.php';

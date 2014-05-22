@@ -1,0 +1,32 @@
+{
+    "name": "expstudio/laraclip",
+    "description": "Attachment uploader package using Eloquent in Laravel 4 with PHP5.3.x support downgrade from Expstudio/laraclip",
+    "keywords": ["laravel", "file", "upload", "S3", "AWS", "paperclip", "lpm"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Watee Wichiennit",
+            "email": "waycs16@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3",
+        "imagine/imagine": "~0.5.0",
+        "laravel/framework": "~4"
+    },
+    "require-dev": {
+        "mikey179/vfsStream": "1.2.0",
+        "mockery/mockery": "0.8.0",
+        "aws/aws-sdk-php": "2.4.*@dev"
+    },
+    "autoload": {
+        "classmap": [
+            "src/migrations",
+            "tests/TestCase.php"
+        ],
+        "psr-0": {
+            "Expstudio\\LaraClip": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}

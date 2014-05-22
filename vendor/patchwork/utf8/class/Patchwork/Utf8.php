@@ -55,11 +55,11 @@ class Utf8
 
 /**/            if ($glibc)
 /**/            {
-                    $t = iconv('UTF-8', 'ASCII//TRANSLIT', $c);
+                    $t = iconv('UTF-8', 'utf-8//TRANSLIT', $c);
 /**/            }
 /**/            else
 /**/            {
-                    $t = iconv('UTF-8', 'ASCII//IGNORE//TRANSLIT', $c);
+                    $t = iconv('UTF-8', 'utf-8//IGNORE//TRANSLIT', $c);
 
                     if (! isset($t[0])) $t = '?';
                     else if (isset($t[1])) $t = ltrim($t, '\'`"^~');

@@ -5,8 +5,15 @@
 	"license": "MIT",
 	"require": {
 		"laravel/framework": "4.1.*",
-  	"codesleeve/stapler": "dev-master",
-  	"pitchanon/facebook-connect": "dev-master"
+    	"doctrine/dbal": "v2.4.2",
+		"PasswordLib/PasswordLib": "1.0.0-beta1",
+		"robclancy/laravel4-hashing": "1.0.0",
+	  	"expstudio/laraclip": "dev-master",
+	  	"expstudio/friendly-url": "dev-master",
+	  	"way/generators": "dev-master",
+	  	"pitchanon/facebook-connect": "dev-master",
+	  	"laravelbook/ardent": "dev-master",
+	  	"zizaco/confide": "3.2.x"
 	},
 	"autoload": {
 		"classmap": [
