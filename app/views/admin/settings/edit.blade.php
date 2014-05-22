@@ -80,7 +80,7 @@
     <label class="col-sm-2 control-label">&nbsp;</label>
     <div class="col-sm-10">
       {{ Form::submit('Update', array('class' => 'btn btn-lg btn-primary')) }}
-      {{ link_to_route('admin..settings.show', 'Cancel', $setting->id, array('class' => 'btn btn-lg btn-default')) }}
+      {{ link_to_route('admin..settings.index', 'Cancel', '', array('class' => 'btn btn-lg btn-default')) }}
     </div>
 </div>
 

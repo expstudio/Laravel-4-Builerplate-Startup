@@ -9,15 +9,15 @@ class Setting extends Eloquent {
 	'site_title' => 'Laravel 4 Boilerplate',
 	'site_name' => 'Laravel 4 Boilerplate',
 	'copy_right' => 'Laravel 4 Boilerplate Admin copy right © 2014 powered by expstudio.net',
+	'app_key' => '',
+	'app_secret' => '',
+	'page_id' => ''
 	);
 
 	public static $rules = array(
 		'site_title' => 'required',
 		'site_name' => 'required',
-		'copy_right' => 'required',
-		'app_key' => 'required',
-		'app_secret' => 'required',
-		'page_id' => 'required'
+		'copy_right' => 'required'
 	);
 
 	public static function SITE_TITLE(){

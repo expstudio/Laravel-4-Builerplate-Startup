@@ -7,7 +7,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{{ url('/') }}">Laravel 4 Boilerplate Admin</a>
+                <a class="navbar-brand" href="{{ url('/') }}">{{ Setting::SITE_TITLE() }} Admin</a>
             </div>
             <!-- /.navbar-header -->
 

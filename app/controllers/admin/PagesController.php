@@ -69,11 +69,9 @@ class PagesController extends \BaseController {
 			$page = $this->page->create($input);
 
 			foreach ($images as $image) {
-				$image = new Image;
-				$image->image = $image;
-				$image->caption = '';
-				$image->save();
-				$this->images()->attach($image);
+				
+					$image = Image::create(array('caption' => '', 'image' => $image));
+					$page->images()->attach($image);
 			}
 
 			return Redirect::route('admin..pages.index');
@@ -148,13 +146,14 @@ class PagesController extends \BaseController {
 			$page = $this->page->find($id);
 			$page->update($input);
 
-			// foreach ($images as $image) {
-			// 	$page->images()->attach(Image::create(array('page_id' => $page->id, 'image' => $image)));
-			// }
+			foreach ($images as $image) {				
+					$image = Image::create(array('caption' => '', 'image' => $image));
+					$page->images()->attach($image);
+			}
 
-			// foreach ($deleted_files as $file_id) {
-			// 	ImagePage::find($file_id)->delete();
-			// }
+			foreach ($deleted_files as $file_id) {
+				Image::find($file_id)->delete();
+			}
 
 			return Redirect::route('admin..pages.index', $id);
 		}

@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AddScriptToPages' => $baseDir . '/app/database/migrations/2014_05_22_070238_add_script_to_pages.php',
     'BaseController' => $baseDir . '/app/controllers/BaseController.php',
     'Boris\\Boris' => $vendorDir . '/d11wtq/boris/lib/Boris/Boris.php',
     'Boris\\CLIOptionsHandler' => $vendorDir . '/d11wtq/boris/lib/Boris/CLIOptionsHandler.php',
@@ -29,7 +30,8 @@ return array(
     'ClassPreloader\\Parser\\DirVisitor' => $vendorDir . '/classpreloader/classpreloader/src/ClassPreloader/Parser/DirVisitor.php',
     'ClassPreloader\\Parser\\FileVisitor' => $vendorDir . '/classpreloader/classpreloader/src/ClassPreloader/Parser/FileVisitor.php',
     'ClassPreloader\\Parser\\NodeTraverser' => $vendorDir . '/classpreloader/classpreloader/src/ClassPreloader/Parser/NodeTraverser.php',
-    'ConfideSetupUsersTable' => $vendorDir . '/zizaco/confide/src/migrations/2013_01_13_172956_confide_setup_users_table.php',
+    'Comment' => $baseDir . '/app/models/Comment.php',
+    'ConfideSetupUsersTable' => $baseDir . '/app/database/migrations/2014_05_22_045405_confide_setup_users_table.php',
     'CreateCategories' => $baseDir . '/app/database/migrations/2014_05_20_134014_create_categories.php',
     'CreateCategoriesPosts' => $baseDir . '/app/database/migrations/2014_05_20_134345_create_categories_posts.php',
     'CreateComments' => $baseDir . '/app/database/migrations/2014_05_21_170243_create_comments.php',
@@ -46,7 +48,6 @@ return array(
     'CreateSettings' => $baseDir . '/app/database/migrations/2014_05_20_101630_create_settings.php',
     'CreateTags' => $baseDir . '/app/database/migrations/2014_05_20_133513_create_tags.php',
     'CreateUserMetas' => $baseDir . '/app/database/migrations/2014_05_21_163623_create_user_metas.php',
-    'CreateUsers' => $baseDir . '/app/database/migrations/2014_05_20_122442_create_users.php',
     'Crypt_AES' => $vendorDir . '/phpseclib/phpseclib/phpseclib/Crypt/AES.php',
     'Crypt_Base' => $vendorDir . '/phpseclib/phpseclib/phpseclib/Crypt/Base.php',
     'Crypt_Blowfish' => $vendorDir . '/phpseclib/phpseclib/phpseclib/Crypt/Blowfish.php',
@@ -1377,6 +1378,7 @@ return array(
     'Psr\\Log\\NullLogger' => $vendorDir . '/psr/log/Psr/Log/NullLogger.php',
     'Robbo\\Hashing\\HashServiceProvider' => $vendorDir . '/robclancy/laravel4-hashing/src/Robbo/Hashing/HashServiceProvider.php',
     'Robbo\\Hashing\\Sha512Hasher' => $vendorDir . '/robclancy/laravel4-hashing/src/Robbo/Hashing/Sha512Hasher.php',
+    'Role' => $baseDir . '/app/models/Role.php',
     'SessionHandlerInterface' => $vendorDir . '/symfony/http-foundation/Symfony/Component/HttpFoundation/Resources/stubs/SessionHandlerInterface.php',
     'Setting' => $baseDir . '/app/models/Setting.php',
     'Stack\\Builder' => $vendorDir . '/stack/builder/src/Stack/Builder.php',
