@@ -1,12 +1,14 @@
 <?php
 
 class Category extends Eloquent {
+    public $timestamps = false;
 
 	protected $guarded = array();
   
 	protected $attributes = array(
 		'name_en' => '',
-		'name_th' => ''
+		'name_th' => '',
+		'category_id' => '0'
 	);
 
 

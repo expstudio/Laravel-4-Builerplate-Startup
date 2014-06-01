@@ -3,17 +3,27 @@
 @section('main')
 
 <div class="row">
-<h1>ข่าวทั้งหมด</h1>
+	<div class="col-lg-12">
+		<h1>โพสท์ทั้งหมด</h1>
 
-<p>{{ link_to_route('admin..news.create', 'เพิ่มข่าวใหม่', null, array('class' => 'btn btn-lg btn-success pull-right')) }}</p>
+        @if ($errors->any())
+        	<div class="alert alert-danger">
+        	    <ul>
+                    {{ implode('', $errors->all('<li class="error">:message</li>')) }}
+                </ul>
+        	</div>
+        @endif
+    </div>
+
+	<p>{{ link_to_route('admin..posts.create', 'เพิ่มโพสท์ใหม่', null, array('class' => 'btn btn-lg btn-success pull-right')) }}</p>
 
 </div>
-@if ($news->count())
-	<table class="table table-striped">
+@if ($posts->count())
+	<table class="table table-striped table-bordered table-hover dataTable ">
 		<thead>
 			<tr>
 				<th>ID</th>
-				<th>หัวข้อข่าว</th>
+				<th>หัวข้อโพสท์</th>
 				<th>สถานะ</th>
 				<th>วันที่</th>
 				<th>&nbsp;</th>
@@ -21,26 +31,28 @@
 		</thead>
 
 		<tbody>
-			@foreach ($news as $new)
+			@foreach ($posts as $post)
 				<tr>
-					<td>{{{ $new->id }}}</td>
-					<td>{{{ $new->title }}}</td>
-					<td>{{{ $new->is_published ? 'เผยแพร่' : 'ปิด' }}}</td>
-					<td>{{{ $new->created_at }}}</td>
+					<td>{{{ $post->id }}}</td>
+					<td>{{{ $post->title }}}</td>
+					<td>{{{ $post->post_status }}}</td>
+					<td>{{{ $post->created_at }}}</td>
                     <td>
-                        {{ Form::open(array('style' => 'display: inline-block;', 'method' => 'DELETE', 'route' => array('admin..news.destroy', $new->id))) }}
+                        {{ Form::open(array('style' => 'display: inline-block;', 'method' => 'DELETE', 'route' => array('admin..posts.destroy', $post->id))) }}
                             {{ Form::submit('Delete', array('class' => 'btn btn-danger', 'data-confirm' => 'Are you sure?')) }}
                         {{ Form::close() }}
-                        {{ link_to_route('admin..news.edit', 'Edit', array($new->id), array('class' => 'btn btn-info')) }}
-                        {{ link_to_route('news.show', 'View', array($new->id), array('class' => 'btn btn-success', 'target' => '_blank')) }}
+                        {{ link_to_route('admin..posts.edit', 'Edit', array($post->id), array('class' => 'btn btn-info')) }}
+                        <span><a href="{{ url(action('admin\PostTranslationsController@set_translation', $post->id)) }}">
+                        {{ HTML::image(url('/assets/images/en-flag.png'), 'Set English translation', array('style' => 'height:34px; width:auto;')) }}</a>
+                        </span>
                     </td>
 				</tr>
 			@endforeach
 		</tbody>
 	</table>
-	<?php echo $news->links(); ?>
+	<?php echo $posts->links(); ?>
 @else
-	ยังไม่มีข่าว
+	ยังไม่มีโพสท์
 @endif
 
 @stop

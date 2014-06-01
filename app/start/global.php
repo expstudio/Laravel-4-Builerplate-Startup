@@ -80,17 +80,68 @@ App::down(function()
 
 Page::saving(function($page)
 {
-  $page->slug = Str::slug($page->title);
+  if(!$page->slug)
+    $page->slug = Str::slug($page->title);
 });
 
 Post::saving(function($post)
 {
-  $post->slug = Str::slug($post->title);
+  if(!$post->slug)
+    $post->slug = Str::slug($post->title);
 });
 
 Portfolio::saving(function($portfolio)
 {
-  $portfolio->slug = Str::slug($portfolio->title);
+  if(!$portfolio->slug)
+    $portfolio->slug = Str::slug($portfolio->title);
+});
+
+Category::saving(function($category)
+{
+  if(!$category->slug)
+    $category->slug = Str::slug($category->name_en);
+});
+
+PageTranslation::saving(function($page)
+{
+  if(!$page->slug)
+    $page->slug = Str::slug($page->title);
+});
+
+PostTranslation::saving(function($post)
+{
+  if(!$post->slug)
+    $post->slug = Str::slug($post->title);
+});
+
+PortfolioTranslation::saving(function($portfolio)
+{
+  if(!$portfolio->slug)
+    $portfolio->slug = Str::slug($portfolio->title);
+});
+
+ProductTranslation::saving(function($product)
+{
+  if(!$product->slug)
+    $product->slug = Str::slug($product->title);
+});
+
+Profile::saving(function($profile)
+{
+  if(!$profile->slug)
+    $profile->slug = Str::slug($profile->name);
+});
+
+Tag::saving(function($tag)
+{
+  if(!$tag->slug)
+    $tag->slug = Str::slug($tag->name);
+});
+
+Product::saving(function($post)
+{
+  if(!$post->slug)
+    $post->slug = Str::slug($post->title);
 });
 
 require app_path().'/filters.php';

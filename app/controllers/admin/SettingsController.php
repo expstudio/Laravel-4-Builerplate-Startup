@@ -75,6 +75,9 @@ class SettingsController extends \BaseController {
 	{
 		$input = array_except(Input::all(), '_method');
 		$validation = Validator::make($input, Setting::$rules);
+		$input['enable_product'] = isset($input['enable_product']) && $input['enable_product'] = true;
+		$input['enable_post'] = isset($input['enable_post']) && $input['enable_post'] = true;
+		$input['enable_portfolio'] = isset($input['enable_portfolio']) && $input['enable_portfolio'] = true;
 
 		if ($validation->passes())
 		{

@@ -11,14 +11,15 @@ class DatabaseSeeder extends Seeder {
 	{
 		Eloquent::unguard();
 
-		$user = new User;
+		$user = new User ;
 		$user->email = 'waycs16@gmail.com';
 		$user->username = 'admin';
 		$user->password = Hash::make('way12com');
+		$user->password_confirmation = 'asdfsafsdf';
 		$user->confirmation_code = 'asdfsafsdf';
 		$user->confirmed = true;
 		$user->save();
-    $this->command->info('User table seeded!');
+    	$this->command->info($user);
 	}
 
 }

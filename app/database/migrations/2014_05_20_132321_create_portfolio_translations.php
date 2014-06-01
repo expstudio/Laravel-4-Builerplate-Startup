@@ -12,7 +12,7 @@ class CreatePortfolioTranslations extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('portfolios_translations', function(Blueprint $table) {
+		Schema::create('portfolio_translations', function(Blueprint $table) {
 			$table->increments('id');
 			$table->integer('portfolio_id')->nullable();	
 			$table->string('locale', 2);

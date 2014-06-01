@@ -1,0 +1,1689 @@
+@import url(http://fonts.googleapis.com/css?family=Raleway:200,300,400,500);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:100,300,700,800);
+@import url(../fonts/stylesheet.css);
+.froala-element {
+  font-family:'rsuregular','Open Sans', sans-serif;
+    color: #85939b;
+}
+.froala-element h1, .froala-element h2, .froala-element h3, .froala-element h4, .froala-element h5, .froala-element h6 {
+  font-family: 'Open Sans', sans-serif;
+  color: #232a2f;
+}
+.froala-element h3, .froala-element h4, .froala-element h5 {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 200;
+  margin-bottom: 30px;
+}
+.froala-element p {
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 300;
+  margin-bottom: 30px;
+}
+.froala-element .header-content {
+  margin-bottom: 40px;
+  color: #FFF;
+}
+.froala-element .header-content h2 {
+  font-weight: 300;
+  font-size: 40px;
+}
+.froala-element .header-content h3 {
+  font-family: 'rsubold','Raleway', sans-serif;
+  font-weight: 200;
+  text-transform: capitalize;
+  font-size: 24px;
+}
+.froala-element ul.list {
+  padding-left: 28px;
+  padding-bottom: 10px;
+  list-style: none;
+  position: relative;
+  font-size: 16px;
+  line-height: 28px;
+  font-weight: 300;
+}
+.froala-element ul.list li:before {
+  position: absolute;
+  left: 3px;
+  font-family: 'FontAwesome';
+  content: '\f105';
+}
+.froala-element a {
+  -webkit-transition: all .3s ease-in-out;
+  -moz-transition: all .3s ease-in-out;
+  -ms-transition: all .3s ease-in-out;
+  -o-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+  color: #DDAD02;
+}
+.froala-element a:hover {
+  color: #232a2f;
+  text-decoration: none;
+}
+.froala-element #main-wrapper {
+  width: 100%;
+  position: relative;
+}
+.froala-element blockquote {
+  margin-left: 20px;
+}
+.froala-element blockquote p {
+  margin-bottom: 10px !important;
+}
+.froala-element code {
+  display: block;
+  padding: 4px 8px;
+  font-size: 90%;
+  color: #c7254e;
+  white-space: inherit;
+  background-color: #f9f2f4;
+  border-radius: 2px;
+}
+.froala-element #loader {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 1031;
+  background: #f7f8f9;
+}
+.froala-element footer {
+  background: #e5e8eb;
+  padding: 40px;
+}
+.froala-element footer p {
+  font-size: 14px;
+  text-align: center;
+}
+.froala-element #sidebar {
+  position: fixed;
+  width: 220px;
+  background: #e5e8eb;
+  height: 100%;
+  left: 0;
+  font-family: 'Raleway', sans-serif;
+}
+.froala-element #sidebar .navbar-toggle {
+  margin-top: 11px;
+}
+.froala-element #sidebar .navbar-brand {
+  padding-top: 10px;
+  padding-bottom: 20%;
+  padding-left: 30px;
+}
+.froala-element #sidebar .navbar-brand span {
+  font-style: italic;
+  font-weight: 900;
+  font-size: 39px;
+  vertical-align: middle;
+  color: #262261;
+}
+.froala-element #sidebar .navbar {
+  border-radius: 0;
+  background: transparent;
+  border: none;
+  padding-top: 10%;
+}
+.froala-element #sidebar .navbar-collapse {
+  padding-left: 20px;
+}
+.froala-element #sidebar .navbar-header {
+  float: none;
+  margin-left: -10px;
+}
+.froala-element #sidebar .navbar-nav {
+  float: none;
+  margin-left: -10px;
+}
+.froala-element #sidebar .navbar-nav li {
+  float: none;
+  margin-left: -10px;
+}
+.froala-element #sidebar .navbar-default .navbar-nav > li > a {
+  color: #232a2f;
+  font-size: 13px;
+  font-weight: 300;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding-left: 30px;
+}
+.froala-element #sidebar .navbar-default .navbar-nav > li > a:hover {
+  background: rgba(38, 41, 46, 0.2);
+}
+.froala-element #sidebar .navbar-default .navbar-nav > .active > a {
+  background: transparent;
+  color: #DDAD02;
+}
+.froala-element .navbar-default .navbar-nav > .active > a:hover, .froala-element .navbar-default .navbar-nav > .active > a:focus {
+  background: transparent;
+  color: #DDAD02;
+}
+.froala-element #sidebar .navbar-nav {
+  margin: 70px -15px;
+}
+.froala-element #sidebar .navbar-nav .opens .dropdown-menu {
+  position: static;
+  float: none;
+  width: auto;
+  margin-top: 0;
+  border: 0;
+  box-shadow: none;
+  background-color: transparent;
+}
+.froala-element #sidebar .navbar-default .navbar-nav .opens .dropdown-menu > li > a {
+  color: #777;
+}
+.froala-element #sidebar .navbar-nav .opens .dropdown-menu > li > a {
+  line-height: 20px;
+}
+.froala-element #container {
+  position: relative;
+  margin-left: 220px;
+}
+.froala-element section {
+  padding: 60px;
+  background: #f7f8f9;
+}
+.froala-element section.odd {
+  background: #eceff1;
+}
+.froala-element .mg-bt-80 {
+  margin-bottom: 80px;
+}
+.froala-element .mg-bt-60 {
+  margin-bottom: 60px;
+}
+.froala-element .mg-bt-40 {
+  margin-bottom: 40px;
+}
+.froala-element .totop {
+  position: fixed;
+  bottom: 0;
+  right: 0px;
+  width: 0px;
+  height: 0px;
+  color: #FFF;
+  border-style: solid;
+  border-width: 0 0 60px 60px;
+  border-color: transparent transparent rgba(18, 24, 24, 0.4) transparent;
+  z-index: 999;
+}
+.froala-element .totop span {
+  position: relative;
+  overflow: hidden;
+  font-size: 20px;
+  bottom: -27px;
+  display: inline-block;
+  left: -50px;
+  cursor: pointer;
+  height: 42px;
+  width: 60px;
+  line-height: 30px;
+  text-align: center;
+  z-index: 1000;
+}
+.froala-element .totop a {
+  position: absolute;
+  right: 0;
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  -webkit-transition: all .2s ease-in-out;
+  -moz-transition: all .2s ease-in-out;
+  -ms-transition: all .2s ease-in-out;
+  -o-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+}
+.froala-element .totop .first {
+  top: 0px;
+}
+.froala-element .totop .hover {
+  top: 20px;
+}
+.froala-element .totop .first i {
+  color: #FFF;
+}
+.froala-element .footer-toogle .hover i {
+  color: #DDAD02;
+}
+.froala-element .totop:hover {
+  cursor: pointer;
+}
+.froala-element .totop:hover span > a.first {
+  top: -20px;
+}
+.froala-element .totop:hover span > a.hover {
+  top: 0px;
+  color: #DDAD02;
+}
+.froala-element .btn {
+  border-radius: 0;
+  padding: 8px 13px;
+  margin-right: 5px;
+  -webkit-transition: all .3s ease-in-out;
+  -moz-transition: all .3s ease-in-out;
+  -ms-transition: all .3s ease-in-out;
+  -o-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+.froala-element .btn.big {
+  padding: 13px 25px;
+  font-size: 18px;
+}
+.froala-element .btn.btn-dark {
+  background: #e5e8eb;
+  color: #FFF;
+}
+.froala-element .btn.btn-dark:hover {
+  background: #323838;
+}
+.froala-element .btn.btn-light {
+  background: #323838;
+  color: #FFF;
+}
+.froala-element .btn.btn-light:hover {
+  background: #e5e8eb;
+}
+.froala-element .social-icon {
+  padding: 0;
+  text-align: center;
+}
+.froala-element .social-icon li {
+  list-style: none;
+  display: inline-block;
+  cursor: pointer;
+  margin-left: 15px;
+  margin-bottom: 15px;
+}
+.froala-element .social-icon li a {
+  display: block;
+  width: 72px;
+  height: 72px;
+  text-align: center;
+  font-size: 36px;
+  line-height: 72px;
+  color: #2b2e33;
+  background: #e5e8eb;
+  border-radius: 50%;
+  -webkit-transition: all .5s ease-in-out;
+  -moz-transition: all .5s ease-in-out;
+  -ms-transition: all .5s ease-in-out;
+  -o-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+}
+.froala-element .social-icon li:hover a {
+  transform: rotateX(360deg);
+  -ms-transform: rotateX(360deg);
+  -webkit-transform: rotateX(360deg);
+  -o-transform: rotateX(360deg);
+  -moz-transform: rotateX(360deg);
+  color: #FFF;
+  background: #DDAD02;
+}
+.froala-element .social-icon li:hover a i {
+  transform: rotateY(360deg);
+  -ms-transform: rotateY(360deg);
+  -webkit-transform: rotateY(360deg);
+  -o-transform: rotateY(360deg);
+  -moz-transform: rotateY(360deg);
+}
+.froala-element section.home {
+  padding: 0px;
+}
+.froala-element .home .bg-parallax {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center center;
+  width: 100%;
+  height: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+}
+.froala-element .home .slide-filter {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: rgba(236, 239, 241, 0.48);
+}
+.froala-element .home .slide-text {
+  position: absolute;
+  display: block;
+  bottom: 40%;
+  right: 0;
+  left: -220px;
+  width: 100%;
+  padding: 0 10px;
+  z-index: 22;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+.froala-element .home .slide-text h2 {
+  font-family: 'rsubold','Raleway', sans-serif;
+  font-weight: 300;
+  text-transform: uppercase;
+  font-size: 56px;
+  line-height: 69px;
+  letter-spacing: 2px;
+  color: #232a2f;
+  position: relative;
+}
+.froala-element .home .slide-text span {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  font-size: 25px;
+  line-height: 40px;
+  letter-spacing: 0px;
+  color: #232a2f;
+  position: relative;
+}
+.froala-element .home .slides-navigation {
+  margin: 0 auto;
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  top: 0%;
+  height: 120px;
+}
+.froala-element .home .slides-navigation a {
+  position: absolute;
+  font-size: 40px;
+  font-weight: 300;
+  top: 0;
+  right: 0;
+  line-height: 35px;
+  z-index: 1;
+  bottom: 21px;
+  color: #232a2f;
+}
+.froala-element .home .slides-navigation a:hover {
+  color: #DDAD02;
+}
+.froala-element .home .slides-navigation a.prev, .froala-element .home .slides-navigation a.next {
+  background: #f7f8f9;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+}
+.froala-element .home .slides-navigation a.prev {
+  right: 42px;
+}
+.froala-element #slider-services {
+  position: relative;
+  z-index: 1;
+}
+.froala-element #slider-services div {
+  position: relative;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+.froala-element #slider-services div img {
+  z-index: -1;
+  position: relative;
+  width: 100%;
+}
+.froala-element .services .services-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: #DDAD02;
+  text-align: center;
+  font-size: 30px;
+  color: #FFF;
+  margin: 0 auto;
+  position: relative;
+  line-height: 70px;
+}
+.froala-element .services .services-desc {
+  padding-left: 10px;
+}
+.froala-element .services .services-desc h4 {
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+.froala-element .portfolio {
+  padding-top: 60px;
+  padding-bottom: 80px;
+  background: #F4F4F4;
+}
+.froala-element .portfolioContainer {
+  padding: 20px;
+}
+.froala-element .portfolio .portfolio-item {
+  opacity: 0;
+  display: none;
+  margin: 0;
+  padding: 0;
+}
+.froala-element .portfolio .portfolio-item img {
+  width: 100%;
+  height: auto;
+}
+.froala-element .portfolioFilter {
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+.froala-element .portfolioFilter a {
+  margin-right: 10px;
+  text-decoration: none;
+  font-weight: 300;
+  text-align: center;
+}
+.froala-element .portfolioFilter a.active {
+  text-decoration: line-through;
+  color: #FFF;
+}
+.froala-element .portfolio-item {
+  position: relative;
+  color: #ffffff;
+  line-height: 0;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  -webkit-transition: all .3s ease-in-out;
+  -moz-transition: all .3s ease-in-out;
+  -ms-transition: all .3s ease-in-out;
+  -o-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+.froala-element .project-hover {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  color: rgba(255, 255, 255, 0);
+  background: transparent;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.4em;
+  line-height: 20px;
+  text-transform: uppercase;
+  visibility: visible;
+  -webkit-transition: all .3s ease-in-out;
+  -moz-transition: all .3s ease-in-out;
+  -ms-transition: all .3s ease-in-out;
+  -o-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+.froala-element .portfolio-item a:hover > .project-hover {
+  color: white;
+  cursor: crosshair;
+  background: rgba(0, 0, 0, 0.5);
+  -webkit-transition: all .3s ease-in-out;
+  -moz-transition: all .3s ease-in-out;
+  -ms-transition: all .3s ease-in-out;
+  -o-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+.froala-element .project-hover span {
+  display: inline-block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.froala-element .portfolio-item a:hover > .project-hover span {
+  padding: 15px 0;
+  font-family: 'rsuregular', 'Raleway', sans-serif;
+}
+.froala-element .project-hover b {
+  color: rgba(255, 255, 255, 0);
+  font-size: 14px;
+  font-style: italic;
+  font-weight: normal;
+  letter-spacing: 0;
+  text-transform: none;
+  padding-top: 0;
+  display: inline-block;
+  -webkit-transition: all .3s ease-in-out;
+  -moz-transition: all .3s ease-in-out;
+  -ms-transition: all .3s ease-in-out;
+  -o-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+.froala-element .project-hover span.plus {
+  font-size: 120px;
+  font-weight: 100;
+}
+.froala-element .portfolio-item a:hover > .project-hover b {
+  color: rgba(255, 255, 255, 0.5);
+  -webkit-transition: all .3s ease-in-out;
+  -moz-transition: all .3s ease-in-out;
+  -ms-transition: all .3s ease-in-out;
+  -o-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+.froala-element .testimonial {
+  text-align: center;
+}
+.froala-element .testimonial ul li {
+  list-style: none;
+  padding: 0;
+}
+.froala-element .testimonial h2 {
+  font-weight: 300;
+  padding: 0 10%;
+  font-size: 24px;
+  line-height: 36px;
+  text-align: center;
+}
+.froala-element .testimonial .icon-testimonial {
+  font-size: 35px;
+  padding-bottom: 15px;
+  color: #DDAD02;
+}
+.froala-element .testimonial span {
+  padding-top: 20px;
+  display: block;
+  position: relative;
+}
+.froala-element .testimonial span#controls {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-top: -60px;
+  padding: 0;
+  margin-right: -44px;
+  line-height: 37px;
+}
+.froala-element .testimonial .quote-right-indicator:hover, .froala-element .testimonial .quote-left-indicator:hover {
+  color: #DDAD02;
+}
+.froala-element .testimonial .quote-right-indicator {
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  position: relative;
+  background: #e5e8eb;
+  font-size: 25px;
+  font-weight: 300;
+  z-index: 1;
+  color: #CECECE;
+}
+.froala-element .testimonial .quote-left-indicator {
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  position: relative;
+  background: #e5e8eb;
+  font-size: 25px;
+  font-weight: 300;
+  z-index: 1;
+  color: #CECECE;
+  margin-right: 2px;
+}
+.froala-element .about .teams {
+  color: #202020;
+  background: #FFF;
+  margin-bottom: 40px;
+  position: relative;
+  z-index: 1;
+}
+.froala-element .about .teams .pict {
+  position: relative;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+.froala-element .about .teams .pict img {
+  position: relative;
+  z-index: -1;
+  max-width: 100%;
+  width: 100%;
+}
+.froala-element .about .teams h3 {
+  margin-bottom: 20px;
+  color: #202020;
+  font-weight: 400;
+}
+.froala-element .about .teams .desc {
+  padding: 25px;
+}
+.froala-element .about .teams span {
+  font-size: 13px;
+  font-weight: 700;
+  display: block;
+  position: relative;
+  padding-bottom: 30px;
+}
+.froala-element .about .social a {
+  width: 31px;
+  height: 31px;
+  position: relative;
+  text-align: center;
+  color: #202020;
+  display: inline-block;
+  margin-right: 5px;
+  border-radius: 50%;
+  line-height: 28px;
+  font-size: 16px;
+  border: 1px solid #202020;
+}
+.froala-element .about .social a:hover {
+  background: #202020;
+  color: #FFF;
+}
+.froala-element .about canvas {
+  width: 100%;
+}
+.froala-element .about .skill-bar ul {
+  list-style: none;
+  padding: 0;
+}
+.froala-element .about .skill-bar ul li {
+  height: 50px;
+  line-height: 50px;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.1);
+  position: relative;
+  margin-bottom: 26px;
+}
+.froala-element .about .skill-bar ul li h4 {
+  margin: 0;
+  line-height: 50px;
+  position: absolute;
+}
+.froala-element .about .skill-bar ul li .bar {
+  display: inline-block;
+  padding-left: 15px;
+  height: 100%;
+  background: #DDAD02;
+}
+.froala-element .about .skill-bar ul li span {
+  position: absolute;
+  top: 0;
+  right: 20px;
+  color: #FFF;
+}
+.froala-element .about .client-slider {
+  list-style: none;
+  padding-left: 0;
+  position: relative;
+  display: block;
+  margin: 0 auto;
+}
+.froala-element .about .client-slider li {
+  margin: 5px 5px;
+  display: inline-block;
+}
+.froala-element .blog-front article {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 40px;
+}
+.froala-element .blog-front article .blog-thumb {
+  position: relative;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+.froala-element .blog-front article .blog-thumb img {
+  z-index: -1;
+  width: 100%;
+  max-width: 100%;
+  position: relative;
+}
+.froala-element .blog-front article .post-area {
+  text-align: right;
+}
+.froala-element .blog-front article .post-area h4 {
+  margin-bottom: 10px;
+  margin-top: 20px;
+  text-align: left;
+}
+.froala-element .blog-front article .post-area .post-date {
+  font-weight: 700;
+  display: block;
+  position: relative;
+  text-align: left;
+  margin-bottom: 20px;
+}
+.froala-element .blog-front article .post-area p {
+  text-align: left;
+}
+.froala-element .call-ta {
+  position: relative;
+}
+.froala-element .call-ta h2 {
+  display: inline-block;
+  font-size: 40px;
+  font-weight: 300;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding-left: 20px;
+  border-left: 3px solid #DDAD02;
+}
+.froala-element .call-ta h2 span {
+  display: block;
+  font-size: 16px;
+  line-height: 26px;
+  font-family: 'rsubold', 'Open Sans', sans-serif;
+  font-weight: 300;
+  text-transform: none;
+  letter-spacing: 0px;
+}
+.froala-element .call-ta .btn {
+  display: inline-block;
+  margin: 25px 10px 10px;
+}
+.froala-element .call-ta .slide-filter {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: rgba(38, 41, 46, 0.7);
+}
+.froala-element #map {
+  height: 450px;
+  width: 100%;
+}
+.froala-element .contact {
+  position: relative;
+}
+.froala-element .contact:before {
+  bottom: 100%;
+  left: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-bottom-color: #eceff1;
+  border-width: 20px;
+  margin-left: -20px;
+}
+.froala-element .contact form {
+  margin-bottom: 40px;
+}
+.froala-element .contact form .form-group {
+  margin-bottom: 2px;
+}
+.froala-element .contact form input, .froala-element .contact form textarea {
+  border-radius: 0;
+  background: rgba(0, 0, 0, 0.07);
+  color: #85939b;
+  border: none;
+  border-left: 1px solid #DDAD02;
+  box-shadow: none;
+}
+.froala-element .contact form input {
+  height: 50px;
+}
+.froala-element .contact form input:focus {
+  box-shadow: none;
+  border: 1px solid #DDAD02;
+}
+.froala-element .contact form textarea:focus {
+  box-shadow: none;
+  border: 1px solid #DDAD02;
+}
+.froala-element section.blog {
+  padding-bottom: 100px;
+}
+.froala-element #primary {
+  padding-right: 20px;
+  margin-right: 20px;
+  border-right: 1px solid #e5e8eb;
+  margin-bottom: 40px;
+}
+.froala-element #primary .pagination {
+  margin: 60px 0 10px;
+  display: inline-block;
+}
+.froala-element #primary .pagination li {
+  display: inline-block;
+}
+.froala-element #primary .pagination li a {
+  width: 55px;
+  font-family: 'rsuregular', 'Open Sans', sans-serif;
+  font-size: 16px;
+  color: #85939b;
+  height: 55px;
+  margin-right: 10px;
+  margin-bottom: 8px;
+  border-radius: 50%;
+  background: #eceff1;
+  border: none;
+  text-align: center;
+  line-height: 55px;
+  display: block;
+  padding: 0;
+  -webkit-transition: all .5s ease-in-out;
+  -moz-transition: all .5s ease-in-out;
+  -ms-transition: all .5s ease-in-out;
+  -o-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+}
+.froala-element #primary .pagination li:hover a {
+  background: #DDAD02;
+  color: #FFF;
+}
+.froala-element #primary .pagination li.active a {
+  color: #FFF;
+  background: #DDAD02;
+}
+.froala-element #primary .pagination li.active a:hover {
+  pointer-event: none;
+  transform: none;
+  -ms-transform: none;
+  -webkit-transform: none;
+  -o-transform: none;
+  -moz-transform: none;
+}
+.froala-element .widgetbar {
+  padding-left: 0;
+}
+.froala-element .post {
+  position: relative;
+  margin-top: 60px;
+  padding-bottom: 60px;
+  border-bottom: 1px solid #e5e8eb;
+}
+.froala-element .post:first-child {
+  margin-top: 0;
+}
+.froala-element .post:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+.froala-element .post .post-thumb {
+  position: relative;
+}
+.froala-element .post .post-thumb img {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 20px;
+}
+.froala-element .post .post-title {
+  position: absolute;
+  max-width: 95%;
+  right: 0;
+  top: 0;
+  background: #e5e8eb;
+  padding: 5px 20px;
+}
+.froala-element .post .post-title h1 {
+  line-height: 54px;
+  font-weight: 300;
+  font-size: 36px;
+  margin: 0;
+  font-family: 'rsubold','Raleway', sans-serif;
+}
+.froala-element .post .post-title h1 a {
+  color: #232a2f;
+}
+.froala-element .post .post-meta {
+  margin-bottom: 40px;
+}
+.froala-element .post .post-meta span {
+  font-weight: 300;
+  text-transform: uppercase;
+  font-size: 13px;
+}
+.froala-element .post .post-meta span a {
+  color: inherit;
+}
+.froala-element .post .post-meta span a:hover {
+  color: #DDAD02;
+}
+.froala-element .post .post-meta span:after {
+  content: '/';
+  margin: 0 5px 0 9px;
+}
+.froala-element .post .post-meta span:last-child:after {
+  content: '';
+  margin: 0;
+}
+.froala-element .post .post-content p {
+  margin-bottom: 30px;
+}
+.froala-element .ribbon-wrapper {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+}
+.froala-element .ribbon-front {
+  background-color: #eceff1;
+  height: 40px;
+  width: 70px;
+  position: relative;
+  left: -20px;
+  z-index: 2;
+  text-align: center;
+  line-height: 40px;
+}
+.froala-element .ribbon-front a {
+  color: #85939b;
+}
+.froala-element .ribbon-front a:hover i {
+  color: #ff9999;
+}
+.froala-element .ribbon-front i {
+  color: #ff5555;
+  font-size: 18px;
+}
+.froala-element .ribbon-edge-topleft, .froala-element .ribbon-edge-topright, .froala-element .ribbon-edge-bottomleft, .froala-element .ribbon-edge-bottomright {
+  position: absolute;
+  z-index: 1;
+  border-style: solid;
+  height: 0px;
+  width: 0px;
+}
+.froala-element .ribbon-edge-bottomleft, .froala-element .ribbon-edge-bottomright {
+  top: 40px;
+}
+.froala-element .ribbon-edge-topleft, .froala-element .ribbon-edge-bottomleft {
+  left: -20px;
+  border-color: transparent #e5e8eb transparent transparent;
+}
+.froala-element .ribbon-edge-topleft {
+  top: -10px;
+  border-width: 10px 20px 0 0;
+}
+.froala-element .ribbon-edge-bottomleft {
+  border-width: 0 20px 0px 0;
+}
+.froala-element .ribbon-edge-topright, .froala-element .ribbon-edge-bottomright {
+  left: 100px;
+  border-color: transparent transparent transparent #2828BA;
+}
+.froala-element .ribbon-edge-topright {
+  top: -10px;
+  border-width: 10px 0 0 20px;
+}
+.froala-element .ribbon-edge-bottomright {
+  border-width: 0 0 0px 20px;
+}
+.froala-element .ribbon-back-left {
+  position: absolute;
+  top: -10px;
+  left: 0px;
+  width: 0px;
+  height: 40px;
+  z-index: 0;
+}
+.froala-element .ribbon-back-right {
+  position: absolute;
+  top: -10px;
+  right: 0px;
+  width: 0px;
+  height: 40px;
+  z-index: 0;
+}
+.froala-element .blog-author {
+  margin: 40px 0;
+  padding: 0 20px 40px 20px;
+  border: 1px solid #e5e8eb;
+  position: relative;
+  background: #eceff1;
+}
+.froala-element .blog-author .blog-author-content {
+  position: relative;
+  display: block;
+}
+.froala-element .blog-author figure {
+  width: 120px;
+  position: relative;
+}
+.froala-element .blog-author .blog-author-info {
+  margin-left: 120px;
+  position: absolute;
+  top: 0;
+}
+.froala-element .blog-author .blog-author-info p {
+  position: relative;
+}
+.froala-element .blog-comments > h3 {
+  margin-bottom: 40px;
+}
+.froala-element .blog-comments > h3 span {
+  font-size: 13px;
+  display: block;
+  margin-top: 10px;
+}
+.froala-element .blog-comments form {
+  margin-bottom: 40px;
+}
+.froala-element .blog-comments form .form-group {
+  margin-bottom: 2px;
+}
+.froala-element .blog-comments form input, .froala-element .blog-comments form textarea {
+  border-radius: 0;
+  background: #eceff1;
+  color: #85939b;
+  border: none;
+  border-left: 1px solid #DDAD02;
+  box-shadow: none;
+}
+.froala-element .blog-comments form input {
+  height: 50px;
+}
+.froala-element .blog-comments form input:focus {
+  box-shadow: none;
+  border: 1px solid #DDAD02;
+}
+.froala-element .blog-comments form textarea:focus {
+  box-shadow: none;
+  border: 1px solid #DDAD02;
+}
+.froala-element .blog-comments .blog-comment-content figure img {
+  border-radius: 50%;
+}
+.froala-element .blog-comments .blog-comment-content .comment-meta {
+  display: block;
+}
+.froala-element .blog-comments .blog-comment-content .comment-meta .media-heading {
+  display: inline-block;
+}
+.froala-element .blog-comments .blog-comment-content .comment-meta .in-reply, .froala-element .blog-comments .blog-comment-content .comment-meta span.time {
+  font-size: 12px;
+  padding-left: 15px;
+}
+.froala-element .blog-comments .blog-comment-content .comment-meta .comment-extra {
+  display: inline-block;
+}
+.froala-element .blog-comments .blog-comment-content .media-list li {
+  padding: 15px;
+}
+.froala-element .blog-comments .blog-comment-content .media-list li:nth-child(2n+1) {
+  background: #eceff1;
+}
+.froala-element .blog-comments .blog-comment-content .media-body .media-heading a {
+  color: #232a2f;
+  padding-bottom: 1px;
+  border-bottom: 1px dotted #85939b;
+}
+.froala-element .widgetbar .widget {
+  margin-bottom: 30px;
+}
+.froala-element .widgetbar .widget ul {
+  padding-left: 0;
+  margin: 0;
+  list-style: none;
+}
+.froala-element .widgetbar .widget ul li {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 300;
+  color: #85939b;
+  margin-bottom: 7px;
+}
+.froala-element .widgetbar .widget ul li a {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 300;
+  color: #85939b;
+}
+.froala-element .widgetbar .widget ul li a:hover {
+  color: #DDAD02;
+}
+.froala-element .widgetbar .widget .search-widget input[type='text'] {
+  height: 50px;
+  border-radius: 0;
+  background: #e5e8eb;
+  border: none;
+  padding: 8px 12px;
+  box-shadow: none;
+}
+.froala-element .widgetbar .widget .search-widget .btn {
+  height: 50px;
+  border-radius: 0;
+  background: #e5e8eb;
+  border: none;
+  color: #f7f8f9;
+  box-shadow: none;
+  font-size: 20px;
+  -webkit-transition: all .3s ease-in-out;
+  -moz-transition: all .3s ease-in-out;
+  -ms-transition: all .3s ease-in-out;
+  -o-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+.froala-element .widgetbar .widget .search-widget .btn:hover {
+  color: #FFF;
+}
+.froala-element .widgetbar .widget .ads-widget img {
+  max-width: 100%;
+}
+.froala-element .widget .widget-title {
+  font-family: 'rsubold','Raleway', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  margin-bottom: 20px;
+  margin-top: 0;
+}
+.froala-element .widget .widget-title a {
+  color: inherit;
+}
+.froala-element .widget .widget-title a:hover {
+  color: #DDAD02;
+}
+.froala-element .dpXsmall .post .post-title {
+  position: relative;
+  right: inherit;
+  top: inherit;
+  background: transparent;
+  padding: 0;
+}
+.froala-element .dpXsmall .post .post-title h1 {
+  font-size: 20px;
+  line-height: 27px;
+  margin-bottom: 15px;
+  margin-top: 10px;
+}
+.froala-element .dpSmall .media figure.pull-left {
+  float: none !important;
+  padding-bottom: 20px;
+}
+.froala-element .dpXsmall .media figure.pull-left {
+  float: none !important;
+  padding-bottom: 20px;
+}
+.froala-element .dpXsmall .blog-comments .blog-comment-content .comment-meta .media-heading, .froala-element .dpXsmall .blog-comments .blog-comment-content .comment-meta .in-reply, .froala-element .dpXsmall .blog-comments .blog-comment-content .comment-meta span.time {
+  display: block;
+  padding-left: 0;
+  margin: 8px 0;
+}
+.froala-element .dpXsmall .blog-comments .blog-comment-content .comment-meta .comment-extra {
+  float: none !important;
+  margin-bottom: 20px;
+}
+.froala-element .dpSmall #primary, .froala-element .dpXsmall #primary {
+  padding-right: 0;
+  margin-right: 0;
+  border-right: 0;
+}
+.froala-element .dpSmall #sidebar, .froala-element .dpXsmall #sidebar {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  z-index: 99999;
+}
+.froala-element .dpSmall .widgetbar, .froala-element .dpXsmall .widgetbar {
+  padding-left: 15px;
+}
+.froala-element .dpSmall #sidebar .navbar, .froala-element .dpXsmall #sidebar .navbar {
+  padding-top: 20px;
+}
+.froala-element .dpSmall #sidebar .navbar-brand, .froala-element .dpXsmall #sidebar .navbar-brand {
+  padding-bottom: 0;
+}
+.froala-element .dpSmall , .froala-element .dpXsmall  {
+  margin-left: 0;
+}
+.froala-element .dpSmall .home .slide-text, .froala-element .dpXsmall .home .slide-text {
+  left: 0;
+}
+.froala-element .dpSmall .home .slides-navigation, .froala-element .dpXsmall .home .slides-navigation {
+  bottom: 0%;
+  height: 40px;
+  top: inherit;
+}
+.froala-element .dpSmall .home .slide-text h2, .froala-element .dpXsmall .home .slide-text h2 {
+  font-size: 35px;
+  line-height: 45px;
+}
+.froala-element .dpSmall .home .slide-text span, .froala-element .dpXsmall .home .slide-text span {
+  font-size: 18px;
+  line-height: 27px;
+}
+.froala-element .dpSmall .services .services-icon, .froala-element .dpXsmall .services .services-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: #DDAD02;
+  text-align: center;
+  font-size: 30px;
+  color: #FFF;
+  margin: 10px 0 20px;
+  position: relative;
+  line-height: 70px;
+}
+.froala-element .widgetbar .widget .search-widget input::-webkit-input-placeholder, .froala-element .widgetbar .widget .search-widget::-moz-placeholder {
+  color: #333;
+}
+.froala-element .panel-group .panel {
+  margin-bottom: 5px;
+}
+.froala-element .panel-group p {
+  font-size: 16px;
+}
+.froala-element .panel-group .panel {
+  border: 0;
+  border-radius: 0;
+  margin-top: 0 !important;
+}
+.froala-element .panel-heading {
+  border-radius: 0;
+  border-top: 1px solid transparent;
+  padding: 0;
+}
+.froala-element .panel-default > .panel-heading {
+  color: #1A1E22;
+  background-color: #e5e8eb;
+  border-color: transparent;
+}
+.froala-element .panel-title {
+  font-size: 16px;
+  color: inherit;
+  font-weight: 700;
+  display: block;
+}
+.froala-element .panel-title a {
+  display: block;
+  padding: 20px;
+  text-decoration: none;
+}
+.froala-element .panel-title a:hover {
+  color: #FFF;
+}
+.froala-element .panel-body {
+  background: #1A1E22;
+}
+.froala-element .panel-group .panel-heading + .panel-collapse .panel-body {
+  border-top: 0;
+}
+.froala-element .nav-tabs {
+  border-bottom: 0;
+  overflow: hidden;
+}
+.froala-element .nav-tabs > li.active > a {
+  background: #1A1E22;
+  color: #e5e8eb;
+  border-radius: 0;
+  webkit-border-radius: 0;
+  border-top: 0;
+  border-left: none;
+  border-bottom: 0;
+  border-right: 0;
+}
+.froala-element .nav-tabs > li.active > a:hover, .froala-element .nav-tabs > li.active > a:focus {
+  background: #1A1E22;
+  color: #e5e8eb;
+  border-radius: 0;
+  webkit-border-radius: 0;
+  border-top: 0;
+  border-left: none;
+  border-bottom: 0;
+  border-right: 0;
+}
+.froala-element .nav-tabs > li.active:first-child > a:hover {
+  border-left: 0;
+  border-bottom: 0;
+}
+.froala-element .nav-tabs > li > a {
+  font-family: 'Raleway', sans-serif;
+  font-size: 16px;
+  color: inherit;
+  background: #e5e8eb;
+  font-weight: 700;
+  border-left: none;
+  margin: 0;
+  margin-right: 5px;
+  padding: 15px 20px;
+  border-radius: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.froala-element .nav-tabs > li > a {
+  border-bottom: 1px solid #CCC;
+  border: 0;
+  color: #1A1E22;
+}
+.froala-element .nav-tabs > li > a:hover {
+  color: #FFF;
+  background: #3a3e45;
+  border-top: 0;
+  border-right: 0;
+  border-left: none;
+  border: 0;
+}
+.froala-element .nav-tabs > li:first-child > a {
+  border-left: 0;
+}
+.froala-element .tab-content {
+  background: #1A1E22;
+  padding: 15px;
+  border: 0;
+}
+.froala-element .alert {
+  border-radius: 0;
+  padding: 20px;
+  margin-bottom: 10px;
+  border: none;
+  color: #FFF;
+  font-size: 16px;
+}
+.froala-element .alert-dismissable .close {
+  right: -21px;
+  top: -21px;
+  width: 31px;
+  height: 31px;
+  background: #1A1E22;
+  color: inherit;
+  opacity: 1;
+  text-shadow: none;
+}
+.froala-element .alert-warning {
+  background: #deb14d;
+}
+.froala-element .alert-success {
+  background: #70bc70;
+}
+.froala-element .alert-info {
+  background: #52adda;
+}
+.froala-element .alert-danger {
+  background: #c46868;
+}
+.froala-element .tooltip {
+  font-size: 14px;
+}
+.froala-element .tooltip-inner {
+  padding: 15px 15px;
+  border-radius: 0;
+  background: #1A1E22;
+}
+.froala-element .tooltip.in {
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+.froala-element .tooltip.top .tooltip-arrow {
+  bottom: 0;
+  left: 50%;
+  margin-left: -5px;
+  border-top-color: #1A1E22;
+  border-width: 5px 5px 0;
+}
+.froala-element .tooltip.left .tooltip-arrow {
+  border-left-color: #1A1E22;
+}
+.froala-element .tooltip.right .tooltip-arrow {
+  border-right-color: #1A1E22;
+}
+.froala-element .tooltip.bottom .tooltip-arrow {
+  border-bottom-color: #1A1E22;
+}
+.froala-element .label {
+  padding: 5px 8px;
+  border-radius: 0;
+}
+.froala-element .label-warning {
+  background: #deb14d;
+}
+.froala-element .label-info {
+  background: #52adda;
+}
+.froala-element .label-success {
+  background: #70bc70;
+}
+.froala-element .label-danger {
+  background: #c46868;
+}
+.froala-element .progress {
+  height: 25px;
+  border-radius: 0;
+  background: rgba(0, 0, 0, 0.07);
+  box-shadow: none;
+}
+.froala-element .progress-bar {
+  padding: 20px;
+}
+.froala-element .panel {
+  border-radius: 0;
+}
+.froala-element .panel .panel-heading {
+  border-radius: 0;
+}
+.froala-element .panel .panel-heading h3 {
+  padding: 10px;
+}
+.froala-element .table.table-bordered {
+  background: #F4F4F4;
+}
+.froala-element form .form-group {
+  margin-bottom: 2px;
+  margin-bottom: 15px;
+}
+.froala-element form .form-group label {
+  margin-bottom: 10px;
+  font-weight: 400;
+}
+.froala-element form .form-control, .froala-element form textarea {
+  border-radius: 0;
+  background: rgba(0, 0, 0, 0.07);
+  color: #85939b;
+  border: none;
+  border-left: 1px solid #DDAD02;
+  box-shadow: none;
+}
+.froala-element form input.form-control {
+  height: 50px;
+}
+.froala-element form .form-control:focus, .froala-element form textarea:focus {
+  box-shadow: none;
+  border: 1px solid #DDAD02;
+}
+.froala-element .btn {
+  border-radius: 0;
+  padding: 8px 13px;
+  margin-right: 5px;
+  outline: 0;
+  font-weight: 700;
+}
+.froala-element .btn-link {
+  color: #2b2e33;
+  text-decoration: underline;
+}
+.froala-element .btn-link:hover {
+  color: #DDAD02;
+}
+.froala-element .btn-link:hover .well {
+  border-radius: 0;
+  background: rgba(0, 0, 0, 0.07);
+  border: 1px solid #85939b;
+}
+.froala-element .btn-link:hover .pagination {
+  margin: 40px 0 10px;
+  display: inline-block;
+}
+.froala-element .btn-link:hover .pagination li {
+  display: inline-block;
+}
+.froala-element .btn-link:hover .pagination li a {
+  width: 55px;
+  font-family: 'rsuregular','Open Sans', sans-serif;
+  font-size: 16px;
+  color: #85939b;
+  height: 55px;
+  margin-right: 10px;
+  margin-bottom: 8px;
+  border-radius: 50%;
+  background: #eceff1;
+  border: none;
+  text-align: center;
+  line-height: 55px;
+  display: block;
+  padding: 0;
+  -webkit-transition: all .5s ease-in-out;
+  -moz-transition: all .5s ease-in-out;
+  -ms-transition: all .5s ease-in-out;
+  -o-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+}
+.froala-element .btn-link:hover .pagination li:hover a {
+  background: #DDAD02;
+  color: #FFF;
+}
+.froala-element .btn-link:hover .pagination li.active a {
+  color: #FFF;
+  background: #DDAD02;
+}
+.froala-element .btn-link:hover .pagination li.active a:hover {
+  pointer-event: none;
+  transform: none;
+  -ms-transform: none;
+  -webkit-transform: none;
+  -o-transform: none;
+  -moz-transform: none;
+}
+.froala-element .btn-link:hover .pagination > li:last-child > a, .froala-element .btn-link:hover .pagination > li:last-child > span {
+  border-radius: 50%;
+}
+.froala-element .btn-link:hover .pagination > li:first-child > a, .froala-element .btn-link:hover .pagination > li:first-child > span {
+  border-radius: 50%;
+}
+.froala-element .btn-link:hover .bs-glyphicons {
+  margin: 0 -19px 20px -16px;
+  overflow: hidden;
+}
+.froala-element .btn-link:hover .bs-glyphicons-list {
+  padding-left: 0;
+  list-style: none;
+}
+.froala-element .btn-link:hover .bs-glyphicons .glyphicon {
+  margin-top: 5px;
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+.froala-element .btn-link:hover .bs-glyphicons .glyphicon-class {
+  display: block;
+  text-align: center;
+  word-wrap: break-word;
+}
+.froala-element .btn-link:hover .bs-glyphicons li {
+  float: left;
+  width: 25%;
+  height: 115px;
+  padding: 10px;
+  font-size: 10px;
+  line-height: 1.4;
+  text-align: center;
+  border: 1px solid #fff;
+  background-color: #f9f9f9;
+}
+.froala-element .btn-link:hover .model-img {
+  max-width: 100%;
+}
+.froala-element .btn-link:hover .model-img img {
+  max-width: 100%;
+}
+.froala-element .btn-link:hover .nav-second-level li, .froala-element .btn-link:hover .nav-third-level li {
+  border-bottom: none !important;
+}
+.froala-element .btn-link:hover .nav-second-level li a {
+  padding-left: 47px;
+}
+.froala-element .btn-link:hover .nav-third-level li a {
+  padding-left: 62px;
+}
+.froala-element .btn-link:hover .thai-light {
+  font-family: 'rsulight','Open Sans', sans-serif;
+}
+.froala-element .btn-link:hover .thai-regular {
+  font-family: 'rsuregular','Open Sans', sans-serif;
+}
+.froala-element .thai-light {
+  font-family: 'rsulight','Open Sans', sans-serif;
+}
+.froala-element .thai-regular {
+  font-family: 'rsuregular','Open Sans', sans-serif;
+}
+.froala-element a {
+  color: #3498db;
+}
+.froala-element #sidebar .navbar-default .navbar-nav > .active > a, .froala-element .navbar-default .navbar-nav > .active > a:hover, .froala-element .navbar-default .navbar-nav > .active > a:focus {
+  color: #3498db;
+}
+.froala-element .footer-toogle .hover i {
+  color: #3498db;
+}
+.froala-element .totop:hover span > a.hover {
+  color: #3498db;
+}
+.froala-element .social-icon li:hover a {
+  background: #3498db;
+}
+.froala-element .home .slides-navigation a:hover {
+  color: #3498db;
+}
+.froala-element .services .services-icon {
+  background: #3498db;
+}
+.froala-element .testimonial .icon-testimonial {
+  color: #3498db;
+}
+.froala-element .testimonial .quote-right-indicator:hover, .froala-element .testimonial .quote-left-indicator:hover {
+  color: #3498db;
+}
+.froala-element .about .skill-bar ul li .bar {
+  background: #3498db;
+}
+.froala-element .call-ta h2 {
+  border-left: 3px solid #3498db;
+}
+.froala-element .contact form input, .froala-element .contact form textarea {
+  border-left: 1px solid #3498db;
+}
+.froala-element .contact form input:focus, .froala-element .contact form textarea:focus {
+  border: 1px solid #3498db;
+}
+.froala-element #primary .pagination li:hover a {
+  background: #3498db;
+}
+.froala-element #primary .pagination li.active a {
+  background: #3498db;
+}
+.froala-element .post .post-meta span a:hover {
+  color: #3498db;
+}
+.froala-element .blog-comments form input, .froala-element .blog-comments form textarea {
+  border-left: 1px solid #3498db;
+}
+.froala-element .blog-comments form input:focus, .froala-element .blog-comments form textarea:focus {
+  border: 1px solid #3498db;
+}
+.froala-element .widgetbar .widget ul li a:hover {
+  color: #3498db;
+}
+.froala-element .widget .widget-title a:hover {
+  color: #3498db;
+}
+.froala-element .dpSmall .services .services-icon, .froala-element .dpXsmall .services .services-icon {
+  background: #3498db;
+}
+.froala-element .pace .pace-progress {
+  background: #3498db;
+  box-shadow: 0px 0px 5px 0px #3498db;
+}
+.froala-element form .form-control, .froala-element form textarea {
+  border-left: 1px solid #3498db;
+}
+.froala-element form .form-control:focus, .froala-element form textarea:focus {
+  border: 1px solid #3498db;
+}
+.froala-element .btn-link:hover {
+  color: #3498db;
+}
+.froala-element .pagination li:hover a {
+  background: #3498db;
+  color: #FFF;
+}
+.froala-element .pagination li.active a {
+  background: #3498db;
+}
+
+.froala-element * {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.froala-element span {
+line-height: inherit;
+}

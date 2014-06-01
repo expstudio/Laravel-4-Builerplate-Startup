@@ -3,8 +3,8 @@
 @section('main')
 
 <div class="row">
-    <div class="col-md-10 col-md-offset-2">
-        <h1>แก้ไขเพจ</h1>
+    <div class="col-lg-12">
+        <h1>แก้ไขเพจ <span><a href="{{ url(action('admin\PageTranslationsController@set_translation', $page->id)) }}">{{ HTML::image(url('/assets/images/en-flag.png'), 'Set English translation', array('style' => 'height:30px; width:auto;')) }}</a></span></h1>
 
         @if ($errors->any())
         	<div class="alert alert-danger">
@@ -18,25 +18,59 @@
 
 {{ Form::model($page, array('class' => 'form-horizontal', 'id'=> 'my-awesome-dropzone', 'method' => 'PATCH', 'route' => array('admin..pages.update', $page->id), 'files' => true)) }}
 
-        <div class="form-group">
-            {{ Form::label('title', 'หัวข้อ:', array('class'=>'col-md-2 control-label')) }}
-            <div class="col-sm-10">
+    <div class="form-group">
+       
+        <div class="col-sm-12">
               {{ Form::text('title', Input::old('title'), array('class'=>'form-control', 'placeholder'=>'Title')) }}
-            </div>
         </div>
+    </div>
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#body" data-toggle="tab">Body</a>
+        </li>
+        <li><a href="#images" data-toggle="tab">Images</a>
+        </li>
+        <li><a href="#setting" data-toggle="tab">Setting</a>
+        </li>
+    </ul>
+<!-- Tab panes -->
+    <div class="tab-content">
+      <div class="tab-pane fade in active" id="body">
+
 
         <div class="form-group">
-            {{ Form::label('content', 'เนื้อหา:', array('class'=>'col-md-2 control-label')) }}
-            <div class="col-sm-10">
-              {{ Form::textarea('content', Input::old('content'), array('id'=>'editor', 'class'=>'form-control', 'placeholder'=>'Content')) }}
-            </div>
+            {{ Form::textarea('content', Input::old('content'), array('id'=>'editor', 'class'=>'form-control', 'placeholder'=>'Content')) }}
         </div>
+      </div>
+
+      <div class="tab-pane fade" id="images">
 
         <div class="form-group">
             {{ Form::label('cover', 'รูปปก:', array('class'=>'col-md-2 control-label')) }}
             <div class="col-sm-10">
               {{ HTML::image($page->cover->url('thumb'), "Cover") }}
               {{ Form::file('cover', Input::old('cover'), array('class'=>'form-control')) }}
+            </div>
+        </div>
+        
+        <div class="form-group">
+          <label  class="col-md-2 control-label">รูปสไลด์:</label>
+          <div id="sortable" class="dropzone dz-clickable dropzone-previews col-md-10">
+            
+            <div class="dz-default dz-message col-md-9"><span>Drop files here to upload</span></div>
+          </div>
+          <div class="fallback">
+            <input name="images" type="file" multiple />
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-pane fade" id="setting">
+
+        <div class="form-group">
+            {{ Form::label('slug', 'Friendly Url:', array('class'=>'col-md-2 control-label')) }}
+            <div class="col-sm-10">
+              {{ Form::text('slug', Input::old('slug'), array('class'=>'form-control', 'placeholder'=>'Friendly Url')) }}
             </div>
         </div>
 
@@ -47,12 +81,25 @@
             </div>
         </div>
 
+        @if(Input::get('page_id'))
         <div class="form-group">
-            {{ Form::label('parent_id', 'เพจหลัก:', array('class'=>'col-md-2 control-label')) }}
+            {{ Form::label('parent_id', 'หน้าหลัก:', array('class'=>'col-md-2 control-label')) }}
             <div class="col-sm-10">
-              {{ Form::input('number', 'parent_id', Input::old('parent_id'), array('class'=>'form-control')) }}
+              {{ Form::input('number', 'parent_id', Input::get('page_id'), array('class'=>'form-control')) }}
             </div>
         </div>
+        @else
+           <?php $parent_page = Page::lists('title', 'id'); 
+              $parent_page = [ '0' => 'ไม่มีหน้าหลัก'] + $parent_page;
+              $has_parent = Input::old('parent_id') ? Input::old('parent_id') : Input::get('parent_id');
+            ?>
+            <div class="form-group">
+                  {{ Form::label('parent_id', 'หน้าหลัก:', array('class'=>'col-md-2 control-label')) }}
+                <div class="col-sm-4">
+                  {{ Form::select('parent_id', $parent_page, $has_parent, array('class'=>'form-control', 'placeholder'=>'หน้าหลัก')) }}
+                </div>
+            </div>
+        @endif
 
         <div class="form-group">
             {{ Form::label('style', 'Stylesheet:', array('class'=>'col-md-2 control-label')) }}
@@ -60,17 +107,8 @@
               {{ Form::textarea('style', Input::old('style'), array('id'=>'styleeditor', 'class'=>'form-control', 'placeholder'=>'style')) }}
             </div>
         </div>
-
-        <div class="form-group">
-        <label  class="col-md-2 control-label">รูปสไลด์:</label>
-        <div id="sortable" class="dropzone dz-clickable dropzone-previews">
-          
-          <div class="dz-default dz-message"><span>Drop files here to upload</span></div>
-        </div>
-        <div class="fallback">
-          <input name="images" type="file" multiple />
-        </div>
-        </div>
+      </div>
+    </div>
 
 <div class="form-group">
     <label class="col-sm-2 control-label">&nbsp;</label>
@@ -85,6 +123,7 @@
 @stop
 
 @section('script')
+@if($page->slug != "home")
 $(function(){
 $('#editor').editable({
             inlineMode: false, 
@@ -107,7 +146,7 @@ $('#editor').editable({
           }
           })
 });
-
+@endif
 Dropzone.autoDiscover = false;
 $(document).ready(function(){
 Dropzone.options.myAwesomeDropzone = { // The camelized version of the ID of the form element
@@ -154,9 +193,12 @@ Dropzone.options.myAwesomeDropzone = { // The camelized version of the ID of the
     // Listen to the sendingmultiple event. In this case, it's the sendingmultiple event instead
     // of the sending event because uploadMultiple is set to true.
     this.on("sendingmultiple", function(file, xhr, formData) {
-      formData.append('cover', $('#cover')[0].files[0]);
-      $('#cover').remove();
-      $("input[type=submit]").prop('disabled', true);
+      if($('#cover')[0].files[0])
+      {
+        formData.append('cover', $('#cover')[0].files[0]);
+        $('#cover').remove();
+      }
+      $("input[type=submit]").remove();
     });
     this.on("successmultiple", function(files, response) {
       location = '{{{ action('admin\PagesController@index') }}}';

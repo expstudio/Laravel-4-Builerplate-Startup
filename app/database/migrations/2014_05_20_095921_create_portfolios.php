@@ -20,6 +20,7 @@ class CreatePortfolios extends Migration {
 			$table->string('site_url')->nullable();
 			$table->text('content');
 			$table->text('tags')->nullable();
+			
 			$table->string("cover_file_name")->nullable();
 			$table->integer("cover_file_size")->nullable();
 			$table->string("cover_content_type")->nullable();

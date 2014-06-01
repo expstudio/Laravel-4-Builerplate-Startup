@@ -1,6 +1,18 @@
 <?php
+namespace admin;
 
-class PostsController extends BaseController {
+use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Redirect;
+use Post;
+use Image;
+use DB;
+use User;
+use Auth;
+use TagsController;
+
+class PostsController extends \BaseController {
 
 	/**
 	 * Post Repository
@@ -21,23 +33,70 @@ class PostsController extends BaseController {
 	 */
 	public function index()
 	{
-		$post = $this->post->all();
+		$posts = Post::where('post_type', '=', 'post')->orderBy('created_at', 'DESC')->paginate(10);
 
-		return View::make('posts.index', compact('post'));
+		return View::make('admin.posts.index', compact('posts'));
 	}
 
 	/**
-	 * Display the specified resource.
+	 * Show the form for creating a new resource.
 	 *
-	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
+	public function create()
 	{
-		$post = null;
-		$post = Post::where('slug', '=', $id)->first();
-		$post = $post ? $post : $this->post->findOrFail($id);
-		return View::make('posts.show', compact('post'));
+		return View::make('admin..posts.create');
+	}
+
+	/**
+	 * Store a newly created resource in storage.
+	 *
+	 * @return Response
+	 */
+	public function store()
+	{
+		$input = array_except(Input::all(), array('_method', "null", "action"));
+		$images = array();
+		if(isset($input['images']))
+		{
+			$images = $input['images'];
+			unset($input['images']);
+		}
+		
+		unset($input['files']);
+
+		$categories_id = array();
+		if(isset($input['category_id']))
+		{
+			$categories_id = $input['category_id'];
+			unset($input['category_id']);
+		}
+		
+		$validation = Validator::make($input, Post::$rules);
+
+		if ($validation->passes())
+		{
+			$input['user_id'] = Auth::user()->id;
+			$post = $this->post->create($input);
+
+			foreach ($images as $image) {
+				$image = Image::create(array('caption' => '', 'image' => $image));
+				$post->images()->attach($image);
+			}
+
+			foreach ($categories_id as $category_id) {
+				$post->categories()->attach($category_id);
+			}
+
+			TagsController::addTag($post->tags);
+
+			return Redirect::route('admin..posts.index');
+		}
+
+		return Redirect::route('admin..posts.create')
+			->withInput()
+			->withErrors($validation)
+			->with('message', 'There were validation errors.');
 	}
 
 	/**
@@ -49,13 +108,14 @@ class PostsController extends BaseController {
 	public function edit($id)
 	{
 		$post = $this->post->find($id);
+		$post_categories = $post->categories()->select('categories_posts.category_id')->lists('category_id');
 
 		if (is_null($post))
 		{
-			return Redirect::route('post.index');
+			return Redirect::route('admin.posts.index');
 		}
 
-		return View::make('posts.edit', compact('post'));
+		return View::make('admin.posts.edit', compact('post', 'post_categories'));
 	}
 
 	/**
@@ -66,8 +126,32 @@ class PostsController extends BaseController {
 	 */
 	public function update($id)
 	{
-		$input = array_except(Input::all(), '_method');
+		$input = array_except(Input::all(), array('_method', "null", "action"));
+
+		$images = array();
+		$deleted_files = array();
+
+		if(isset($input['images']))
+		{
+			$images = $input['images'];
+			unset($input['images']);
+		}
+
+		if(isset($input['deleted_files']))
+		{
+			$deleted_files = $input['deleted_files'];
+			unset($input['deleted_files']);
+		}
+
 		unset($input['files']);
+
+		$categories_id = array();
+		if(isset($input['category_id']))
+		{
+			$categories_id = $input['category_id'];
+			unset($input['category_id']);
+		}
+
 		$validation = Validator::make($input, Post::$rules);
 
 		if ($validation->passes())
@@ -75,12 +159,42 @@ class PostsController extends BaseController {
 			$post = $this->post->find($id);
 			$post->update($input);
 
-			return Redirect::route('post.show', $id);
+			foreach ($images as $image) {
+				$image = Image::create(array('caption' => '', 'image' => $image));
+				$post->images()->attach($image);
+			}
+
+			foreach ($deleted_files as $file_id) {
+				Image::find($file_id)->delete();
+			}
+
+			$post->categories()->detach();
+			foreach ($categories_id as $category_id) {
+				$post->categories()->attach($category_id);
+			}
+
+			TagsController::addTag($post->tags);
+			
+			return Redirect::route('admin..posts.index', $id);
 		}
 
-		return Redirect::route('post.edit', $id)
+		return Redirect::route('admin..posts.edit', $id)
 			->withInput()
 			->withErrors($validation)
 			->with('message', 'There were validation errors.');
 	}
+
+	/**
+	 * Remove the specified resource from storage.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function destroy($id)
+	{
+		$this->post->find($id)->delete();
+
+		return Redirect::route('admin..posts.index');
+	}
+
 }

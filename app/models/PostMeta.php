@@ -1,6 +1,7 @@
 <?php
 
 class PostMeta extends Eloquent {
+    public $timestamps = false;
 
 	protected $guarded = array();
   

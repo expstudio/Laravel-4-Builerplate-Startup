@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Redirect;
 use Page;
 use Image;
 use User;
+use Auth;
 
 class PagesController extends \BaseController {
 
@@ -30,7 +31,7 @@ class PagesController extends \BaseController {
 	 */
 	public function index()
 	{
-		$pages = Page::with('subPages')->where('parent_id', '')->get();
+		$pages = Page::with('subPages')->where('parent_id', '0')->get();
 
 		return View::make('admin.pages.index', compact('pages'));
 	}
@@ -52,7 +53,7 @@ class PagesController extends \BaseController {
 	 */
 	public function store()
 	{
-		$input = Input::all();
+		$input = array_except(Input::all(), array('_method', "null", "action"));
 		$images = array();
 		if(isset($input['images']))
 		{
@@ -65,7 +66,7 @@ class PagesController extends \BaseController {
 
 		if ($validation->passes())
 		{
-			$input['user_id'] = User::first()->id;
+			$input['user_id'] = Auth::user()->id;
 			$page = $this->page->create($input);
 
 			foreach ($images as $image) {
@@ -122,7 +123,7 @@ class PagesController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		$input = array_except(Input::all(), '_method');
+		$input = array_except(Input::all(), array('_method', "null", "action"));
 		$images = array();
 		$deleted_files = array();
 
@@ -144,11 +145,11 @@ class PagesController extends \BaseController {
 		if ($validation->passes())
 		{
 			$page = $this->page->find($id);
-			$page->update($input);
+			$page->update($input);		
 
-			foreach ($images as $image) {				
-					$image = Image::create(array('caption' => '', 'image' => $image));
-					$page->images()->attach($image);
+			foreach ($images as $image) {	
+				$image = Image::create(array('caption' => '', 'image' => $image));
+				$page->images()->attach($image);
 			}
 
 			foreach ($deleted_files as $file_id) {

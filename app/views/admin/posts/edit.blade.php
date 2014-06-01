@@ -3,8 +3,8 @@
 @section('main')
 
 <div class="row">
-    <div class="col-md-10 col-md-offset-2">
-        <h1>แก้ไขข่าว</h1>
+    <div class="col-lg-12">
+        <h1>แก้ไขโพสท์ <span><a href="{{ url(action('admin\PostTranslationsController@set_translation', $post->id)) }}">{{ HTML::image(url('/assets/images/en-flag.png'), 'Set English translation', array('style' => 'height:30px; width:auto;')) }}</a></span></h1>
 
         @if ($errors->any())
         	<div class="alert alert-danger">
@@ -16,11 +16,31 @@
     </div>
 </div>
 
-{{ Form::model($news, array('class' => 'form-horizontal', 'id'=> 'my-awesome-dropzone', 'method' => 'PATCH', 'route' => array('admin..news.update', $news->id), 'files' => true)) }}
+{{ Form::model($post, array('class' => 'form-horizontal', 'id'=> 'my-awesome-dropzone', 'method' => 'PATCH', 'route' => array('admin..posts.update', $post->id), 'files' => true)) }}
+        
+    <div class="form-group">
+       
+        <div class="col-sm-12">
+          {{ Form::text('title', Input::old('title'), array('class'=>'form-control', 'placeholder'=>'Enter Title Here')) }}
+        </div>
+    </div>
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#body" data-toggle="tab">Body</a>
+        </li>
+        <li><a href="#images" data-toggle="tab">Images</a>
+        </li>
+        <li><a href="#setting" data-toggle="tab">Setting</a>
+        </li>
+    </ul>
+<!-- Tab panes -->
+    <div class="tab-content">
+      <div class="tab-pane fade in active" id="body">
+
         <div class="form-group">
-            {{ Form::label('title', 'หัวข้อ:', array('class'=>'col-md-2 control-label')) }}
+            {{ Form::label('summary', 'สรุป:', array('class'=>'col-md-2 control-label')) }}
             <div class="col-sm-10">
-              {{ Form::text('title', Input::old('title'), array('class'=>'form-control', 'placeholder'=>'Title')) }}
+              {{ Form::textarea('summary', Input::old('summary'), array('placeholder'=>'Summary', 'rows' => 3, 'cols'=> 'auto', 'class' => 'col-md-12 col-sm-12')) }}
             </div>
         </div>
 
@@ -30,15 +50,38 @@
               {{ Form::textarea('content', Input::old('content'), array('id'=>'editor', 'placeholder'=>'Content')) }}
             </div>
         </div>
+      </div>
 
+      <div class="tab-pane fade" id="images">
         <div class="form-group">
             {{ Form::label('cover', 'รูปปก:', array('class'=>'col-md-2 control-label')) }}
             <div class="col-sm-10">
-              {{ HTML::image($news->cover->url('thumb'), "Cover") }}
+              {{ HTML::image($post->cover->url('thumb'), "Cover") }}
               {{ Form::file('cover', Input::old('cover'), array('class'=>'form-control')) }}
             </div>
         </div>
+        
+        <div class="form-group">
+          <label  class="col-md-2 control-label">รูปสไลด์:</label>
+          <div id="sortable" class="dropzone dz-clickable dropzone-previews col-md-10">
+            
+            <div class="dz-default dz-message col-md-9"><span>Drop files here to upload</span></div>
+          </div>
+          <div class="fallback">
+            <input name="images" type="file" multiple />
+          </div>
+        </div>
+      </div>
 
+      <div class="tab-pane fade" id="setting">
+
+        <div class="form-group">
+            {{ Form::label('slug', 'Friendly Url:', array('class'=>'col-md-2 control-label')) }}
+            <div class="col-sm-10">
+              {{ Form::text('slug', Input::old('slug'), array('class'=>'form-control', 'placeholder'=>'Friendly Url')) }}
+            </div>
+        </div>
+        
         <div class="form-group">
             {{ Form::label('tags', 'Tags:', array('class'=>'col-md-2 control-label')) }}
             <div class="col-sm-10">
@@ -46,37 +89,56 @@
             </div>
         </div>
 
-        <div class="form-group products">
-            {{ Form::label('products', 'สินค้าเกี่ยวข้อง:', array('class'=>'col-md-2 control-label')) }}
+        <div class="form-group">
+            {{ Form::label('comment_status', 'อนุญาติให้แสดงความเห็น:', array('class'=>'col-md-2 control-label')) }}
             <div class="col-sm-10">
-              {{ Form::text('products', null, array('id'=>'products', 'class'=>'form-control', 'placeholder'=>'Product Code')) }}
+              {{ Form::checkbox('comment_status', 'open') }}
             </div>
         </div>
 
         <div class="form-group">
-            {{ Form::label('is_published', 'เผยแพร่:', array('class'=>'col-md-2 control-label')) }}
+            {{ Form::label('post_status', 'เผยแพร่:', array('class'=>'col-md-2 control-label')) }}
             <div class="col-sm-10">
-              {{ Form::checkbox('is_published') }}
+              {{ Form::checkbox('post_status', 'publish') }}
             </div>
         </div>
 
-        
-        <div class="form-group">
-        <label  class="col-md-2 control-label">รูปสไลด์:</label>
-        <div id="sortable" class="dropzone dz-clickable dropzone-previews">
-          
-          <div class="dz-default dz-message"><span>Drop files here to upload</span></div>
+        <?php $categories = Category::with('subCategories')->where('category_id', '0')->get(); ?>
+        <div class="form-group well">
+            {{ Form::label('category_id[]', 'ประเภท:', array('class'=>'col-md-2 control-label')) }}
+            <div class="col-sm-10">
+              <ul class="form-group">
+                  @foreach($categories as $category)
+                  <li class="checkbox">
+                      <label> 
+                        {{ Form::checkbox('category_id[]', $category->id, in_array($category->id, $post_categories)) }} {{ $category->name }}
+                      </label>
+                      <?php $subcategories = Category::where('category_id', $category->id)->get(); ?>
+                      @if($subcategories->count() > 0 )
+                        <ul id="sortable">
+                        @foreach ($subcategories as $subcategory)
+                          <li class="checkbox">
+                          <label> 
+                            {{ Form::checkbox('category_id[]', $subcategory->id, in_array($subcategory->id, $post_categories)) }} {{ $subcategory->name }}
+                          </label>
+                            
+                          </li>
+                        @endforeach   
+                        </ul>
+                      @endif
+                  </li>
+                  @endforeach
+              </ul>
+            </div>
         </div>
-        <div class="fallback">
-          <input name="images" type="file" multiple />
-        </div>
-        </div>
+      </div><!--  Tab Pane -->
+    </div> <!-- Tab Panel -->
 
 <div class="form-group">
     <label class="col-sm-2 control-label">&nbsp;</label>
     <div class="col-sm-10">
-      {{ Form::submit('Update', array('class' => 'btn btn-lg btn-primary', 'data-disable-with'=>"Updating...")) }}
-      {{ link_to_route('admin..news.index', 'Cancel', $news->id, array('class' => 'btn btn-lg btn-default')) }}
+      {{ Form::submit('Update', array('class' => 'btn btn-lg btn-primary', 'data-disable-with'=>"Updating...", 'name' => 'action')) }}
+      {{ link_to_route('admin..posts.index', 'Cancel', $post->id, array('class' => 'btn btn-lg btn-default')) }}
     </div>
 </div>
 
@@ -154,12 +216,15 @@ Dropzone.options.myAwesomeDropzone = { // The camelized version of the ID of the
     // Listen to the sendingmultiple event. In this case, it's the sendingmultiple event instead
     // of the sending event because uploadMultiple is set to true.
     this.on("sendingmultiple", function(file, xhr, formData) {
-      formData.append('cover', $('#cover')[0].files[0]);
-      $('#cover').remove();
+      if($('#cover')[0].files[0])
+      {
+        formData.append('cover', $('#cover')[0].files[0]);
+        $('#cover').remove();
+      }
       $("input[type=submit]").prop('disabled', true);
     });
     this.on("successmultiple", function(files, response) {
-      location = '{{{ action('admin\NewsController@index') }}}';
+      location = '{{{ action('admin\PostsController@index') }}}';
     });
     this.on("errormultiple", function(files, response) {
       $("input[type=submit]").prop('disabled', false);
@@ -175,29 +240,16 @@ myDropzone.on("addedfile", function(file) {
 
 var uploadedFile = {};
 
-@foreach ($news->images as $image)
+@foreach ($post->images as $image)
   uploadedFile = { name: "{{{ $image->id }}}", size: "{{{ $image->image_file_size }}}"};
   myDropzone.emit("addedfile", uploadedFile);
   myDropzone.emit("thumbnail", uploadedFile, "{{{ $image->image->url('thumb') }}}");
 @endforeach
 
-myDropzone.options.maxFiles = myDropzone.options.maxFiles - {{{ $news->images->count() }}};
+myDropzone.options.maxFiles = myDropzone.options.maxFiles - {{{ $post->images->count() }}};
 
 $( "#sortable" ).sortable();
 
 });
-$('.products > > input').tagsinput({
-    itemValue: 'id',
-    itemText: 'code',
-    typeahead: {
-      source: function(query) {
-        return $.getJSON('{{{ url('/admin/products.json')}}}');
-      }
-    }
-  });
-  
-@foreach($news->products as $product)
-  $('.products > > input').tagsinput('add', { "id": {{{$product->id}}} , "code": "{{{$product->code}}}"  });
-@endforeach
 
 @stop

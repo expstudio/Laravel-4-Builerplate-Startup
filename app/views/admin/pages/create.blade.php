@@ -3,7 +3,7 @@
 @section('main')
 
 <div class="row">
-    <div class="col-md-40 col-md-offset-2">
+    <div class="col-lg-12">
         <h1>สร้างเพจใหม่</h1>
 
         @if ($errors->any())
@@ -17,28 +17,61 @@
 </div>
 
 {{ Form::open(array('route' => 'admin..pages.store', 'class' => 'form-horizontal', 'id'=> 'my-awesome-dropzone', 'files' => true)) }}
-        <div class="form-group pull-right col-sm-4">
-          <h5>Publish</h5>
-        </div>
-        <div class="col-sm-8 pull-left">
-        <div class="form-group">
-            {{ Form::label('title', 'หัวข้อ:', array('class'=>'col-md-2 control-label')) }}
-            <div class="col-sm-10">
+
+    <div class="form-group">
+       
+        <div class="col-sm-12">
               {{ Form::text('title', Input::old('title'), array('class'=>'form-control', 'placeholder'=>'Title')) }}
-            </div>
         </div>
+    </div>
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#body" data-toggle="tab">Body</a>
+        </li>
+        <li><a href="#images" data-toggle="tab">Images</a>
+        </li>
+        <li><a href="#setting" data-toggle="tab">Setting</a>
+        </li>
+    </ul>
+<!-- Tab panes -->
+    <div class="tab-content">
+      <div class="tab-pane fade in active" id="body">
+
 
         <div class="form-group">
-            {{ Form::label('content', 'เนื้อหา:', array('class'=>'col-md-2 control-label')) }}
-            <div class="col-sm-10">
+            <div class="col-sm-12">
               {{ Form::textarea('content', Input::old('content'), array('id'=>'editor', 'class'=>'form-control', 'placeholder'=>'Content')) }}
             </div>
         </div>
+      </div>
+
+      <div class="tab-pane fade" id="images">
 
         <div class="form-group">
             {{ Form::label('cover', 'รูปปก:', array('class'=>'col-md-2 control-label')) }}
-            <div class="col-sm-10">
+            <div class="col-sm-12">
               {{ Form::file('cover', Input::old('cover'), array('class'=>'form-control')) }}
+            </div>
+        </div>
+        
+        <div class="form-group">
+          <label  class="col-md-2 control-label">รูปสไลด์:</label>
+          <div id="sortable" class="dropzone dz-clickable dropzone-previews col-md-10">
+            
+            <div class="dz-default dz-message col-md-9"><span>Drop files here to upload</span></div>
+          </div>
+          <div class="fallback">
+            <input name="images" type="file" multiple />
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-pane fade" id="setting">
+
+        <div class="form-group">
+            {{ Form::label('slug', 'Friendly Url:', array('class'=>'col-md-2 control-label')) }}
+            <div class="col-sm-10">
+              {{ Form::text('slug', Input::old('slug'), array('class'=>'form-control', 'placeholder'=>'Friendly Url')) }}
             </div>
         </div>
 
@@ -49,12 +82,16 @@
             </div>
         </div>
 
+        @if(Input::get('page_id'))
         <div class="form-group">
             {{ Form::label('parent_id', 'หน้าหลัก:', array('class'=>'col-md-2 control-label')) }}
             <div class="col-sm-10">
               {{ Form::input('number', 'parent_id', Input::get('page_id'), array('class'=>'form-control')) }}
             </div>
         </div>
+        @else
+           {{ Form::hidden('parent_id', Input::get('page_id')) }}
+        @endif
 
         <div class="form-group">
             {{ Form::label('style', 'Stylesheet:', array('class'=>'col-md-2 control-label')) }}
@@ -62,26 +99,16 @@
               {{ Form::textarea('style', Input::old('style'), array('id'=>'styleeditor', 'class'=>'form-control', 'placeholder'=>'style')) }}
             </div>
         </div>
-        
-        <div class="form-group">
-          <label  class="col-md-2 control-label">รูปสไลด์:</label>
-          <div id="sortable" class="dropzone dz-clickable dropzone-previews col-md-10">
-            
-            <div class="dz-default dz-message col-md-10"><span>Drop files here to upload</span></div>
-          </div>
-          <div class="fallback">
-            <input name="images" type="file" multiple />
-          </div>
-        </div>
-        </div>
-
-<div class="form-group">
-    <label class="col-sm-2 control-label">&nbsp;</label>
-    <div class="col-sm-10">
-      {{ Form::submit('Create', array('class' => 'btn btn-lg btn-primary', 'data-disable-with'=>"Saving...")) }}
-      {{ link_to_route('admin..pages.index', 'Cancel', null, array('class' => 'btn btn-lg btn-default ')) }}
+      </div>
     </div>
-</div>
+    
+  <div class="form-group">
+      <label class="col-sm-2 control-label">&nbsp;</label>
+      <div class="col-sm-10">
+        {{ Form::submit('Create', array('class' => 'btn btn-lg btn-primary', 'data-disable-with'=>"Saving...")) }}
+        {{ link_to_route('admin..pages.index', 'Cancel', null, array('class' => 'btn btn-lg btn-default ')) }}
+      </div>
+  </div>
 
 {{ Form::close() }}
 

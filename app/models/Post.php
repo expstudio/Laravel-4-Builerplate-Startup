@@ -25,14 +25,6 @@ class Post extends LaraClip {
     'content' => 'required'
   );  
 
-  public function slug(){
-
-    if($this->slug)
-      return $this->slug;
-    else
-      return $this->id;
-  }
-
   public function images() {
     return $this->belongsToMany('Image', 'images_posts', 'image_id', 'post_id');
   }
@@ -42,10 +34,47 @@ class Post extends LaraClip {
   }
 
   public function categories(){
-    return $this->belongsToMany('Category', 'categories_posts', 'category_id', 'post_id');
+    return $this->belongsToMany('Category', 'categories_posts', 'post_id', 'category_id')->withPivot('posts');
   }
 
   public function metas(){
     return $this->hasMany('PostMeta', 'post_id');
   }
+
+  public function translation(){
+    return $this->hasMany('PostTranslation', 'page_id');
+  }
+}
+
+class PostTranslation extends Eloquent {
+
+  protected $attributes = array(
+    'locale' => 'en'
+  );
+
+  protected $guarded = array();
+
+  public static $rules = array(
+    'post_id' => 'required',
+    'locale' => 'required',
+    'title' => 'required',
+    'content' => 'required'
+  );  
+}
+
+
+class ProductTranslation extends Eloquent {
+  protected $table = 'post_translations';
+  protected $attributes = array(
+    'locale' => 'en'
+  );
+
+  protected $guarded = array();
+
+  public static $rules = array(
+    'post_id' => 'required',
+    'locale' => 'required',
+    'title' => 'required',
+    'content' => 'required'
+  );  
 }

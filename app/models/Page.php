@@ -27,14 +27,6 @@ class Page extends LaraClip {
     'content' => 'required'
   );  
 
-  public function slug(){
-
-    if($this->slug)
-      return $this->slug;
-    else
-      return $this->id;
-  }
-
   public function images() {
     return $this->belongsToMany('Image', 'images_pages', 'image_id', 'page_id');
   }
@@ -51,4 +43,8 @@ class Page extends LaraClip {
     return $this->belongsTo('User', 'user_id');
   }
 
+  public function translation(){
+    return $this->hasMany('PageTranslation', 'page_id');
+  }
 }
+

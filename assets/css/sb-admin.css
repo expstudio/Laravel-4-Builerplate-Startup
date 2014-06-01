@@ -305,3 +305,7 @@ table.dataTable thead .sorting:after {
 .show-grid {
     margin: 15px 0;
 }
+
+.tab-pane {
+    padding: 15px 0;
+}

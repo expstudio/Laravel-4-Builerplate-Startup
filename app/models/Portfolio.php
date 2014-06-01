@@ -40,7 +40,6 @@ class Portfolio extends LaraClip {
   }
   
   protected $attributes = array(
-   'parent_id' => 0,
   );
 
   protected $guarded = array();
@@ -50,16 +49,32 @@ class Portfolio extends LaraClip {
     'content' => 'required'
   );  
 
-  public function slug(){
-
-    if($this->slug)
-      return $this->slug;
-    else
-      return $this->id;
-  }
-
   public function user() {
     return $this->belongsTo('User', 'user_id');
   }
 
+  public function translation(){
+    return $this->hasMany('PortfolioTranslation', 'page_id');
+  }
+
+  public function images() {
+    return $this->belongsToMany('Image', 'images_portfolios', 'image_id', 'portfolio_id');
+  }
+}
+
+
+class PortfolioTranslation extends Eloquent {
+
+  protected $attributes = array(
+    'locale' => 'en'
+  );
+
+  protected $guarded = array();
+
+  public static $rules = array(
+    'page_id' => 'required',
+    'locale' => 'required',
+    'title' => 'title',
+    'content' => 'content'
+  );  
 }

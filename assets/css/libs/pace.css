@@ -1,0 +1,35 @@
+.pace .pace-progress {
+
+  background: #DDAD02;
+
+  position: fixed;
+
+  z-index: 2000;
+
+  top: 48%;
+
+  left: 0;
+
+  height: 1px;
+
+  box-shadow: 0px 0px 5px 0px #DDAD02;
+
+
+
+  -webkit-transition: width 1s;
+
+  -moz-transition: width 1s;
+
+  -o-transition: width 1s;
+
+  transition: width 1s;
+
+}
+
+
+
+.pace-inactive {
+
+  display: none;
+
+}

@@ -18,6 +18,7 @@ class CreateCategories extends Migration {
 			$table->string('name_en');
 			$table->string('name_th');
 			$table->integer('category_id')->unsigned()->index();
+			$table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
 		});
 	}
 

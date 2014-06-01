@@ -12,7 +12,7 @@ class CreatePostTranslations extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('posts_translations', function(Blueprint $table) {
+		Schema::create('post_translations', function(Blueprint $table) {
 			$table->increments('id');
 			$table->integer('post_id')->nullable();	
 			$table->string('locale', 2);

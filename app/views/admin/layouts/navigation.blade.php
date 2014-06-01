@@ -10,11 +10,26 @@
                 <a class="navbar-brand" href="{{ url('/') }}">{{ Setting::SITE_TITLE() }} Admin</a>
             </div>
             <!-- /.navbar-header -->
-
+            @if ( !Auth::guest() )
             <ul class="nav navbar-top-links navbar-right">
-                <li><a href="#"><i class="fa fa-gears fa-fw"></i> Settings</a>
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i> {{Auth::user()->username;}} <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="{{ action('admin\UsersController@edit', Auth::user()->id); }}"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        </li>
+                        <li><a href="{{ action('admin\SettingsController@index'); }}"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="{{ url('/user/logout') }}"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
                 </li>
             </ul>
+            @endif
             <!-- /.navbar-top-links -->
 
         </nav>
