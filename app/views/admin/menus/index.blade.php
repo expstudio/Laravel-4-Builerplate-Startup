@@ -17,7 +17,7 @@
 
 <div class="row">
 	<div class="col-lg-12">
-		<h1> Menuทั้งหมด</h1>
+		<h1>All Menu</h1>
 
         @if ($errors->any())
         	<div class="alert alert-danger">
@@ -29,9 +29,9 @@
     </div>
     <div class=" col-lg-4">
     <?php $parent_menus = Menu::lists('title', 'id'); 
-    	$parent_menus = array('0' => 'ไม่มี Menu หลัก') + $parent_menus;
+    	$parent_menus = array('0' => 'No main menu') + $parent_menus;
     	$menu_id = Input::old('menu_id') ? Input::old('menu_id') : Input::get('menu_id');
-    	$submittext = isset($menu) ? 'แก้ไข' : 'เพิ่ม Menu ใหม่';
+    	$submittext = isset($menu) ? 'Edit' : 'Add new menu';
     ?>
     @if(!isset($menu))
     	{{ Form::open(array('route' => 'admin..menus.store', 'class' => 'form-horizontal')) }}
@@ -45,28 +45,28 @@
 		    	<div class="panel-body">
 		    		<div class="form-group">
 			            
-			            <div class="col-sm-12">{{ Form::label('title', 'ชื่อเมนู:', array('class'=>'control-label')) }}
-			              {{ Form::text('title', Input::old('title'), array('class'=>'form-control', 'placeholder'=>'ชื่อภาษาไทย')) }}
+			            <div class="col-sm-12">{{ Form::label('title', 'Menu name default:', array('class'=>'control-label')) }}
+			              {{ Form::text('title', Input::old('title'), array('class'=>'form-control', 'placeholder'=>'Name Default')) }}
 			            </div>
 			        </div>
 
 		    		<div class="form-group">
 			            <div class="col-sm-12">
-			            {{ Form::label('title_en', 'ชื่อเมนูภาษาอังกฤษ:', array('class'=>'control-label')) }}
-			              {{ Form::text('title_en', Input::old('title_en'), array('class'=>'form-control', 'placeholder'=>'ชื่อภาษาอังกฤษ')) }}
+			            {{ Form::label('title_en', 'Menu name English:', array('class'=>'control-label')) }}
+			              {{ Form::text('title_en', Input::old('title_en'), array('class'=>'form-control', 'placeholder'=>'Name English')) }}
 			            </div>
 			        </div>
 
 		    		<div class="form-group">
 			            <div class="col-sm-12">
-			            {{ Form::label('path', 'ลิงค์:', array('class'=>'control-label')) }}
-			              {{ Form::text('path', Input::old('path'), array('class'=>'form-control', 'placeholder'=>'ลิงค์')) }}
+			            {{ Form::label('path', 'Link:', array('class'=>'control-label')) }}
+			              {{ Form::text('path', Input::old('path'), array('class'=>'form-control', 'placeholder'=>'Link')) }}
 			            </div>
 			        </div>
 
 		    		<div class="form-group">
 			            <div class="col-sm-12">
-			            {{ Form::label('menu_id', 'เมนูหลัก:', array('class'=>'control-label')) }}
+			            {{ Form::label('menu_id', 'Parent Menu:', array('class'=>'control-label')) }}
 			              {{ Form::select('menu_id', $parent_menus, $menu_id, array('class'=>'form-control', 'placeholder'=>'ประเภทหลัก')) }}
 			            </div>
 			        </div>
@@ -80,7 +80,7 @@
 
 				</div>
 				<div class="panel-footer">
-       				 {{ Form::submit($submittext, array('class' => 'btn  btn-primary', 'data-disable-with'=>"กำลังบันทึก...")) }}
+       				 {{ Form::submit($submittext, array('class' => 'btn  btn-primary', 'data-disable-with'=>"Saving...")) }}
 	            </div>
 		    </div>
 		{{ Form::close() }}
@@ -88,8 +88,8 @@
 
     <div class="panel col-lg-8">	
     	
-		<a id="btn-sort" class="btn btn-primary" href="#" alt="Sort Category" style="min-width:114px;">ปรับลำดับเมนู</a>
-		<a id="btn-sort-cancel" class="btn btn-warning hide" href="#" alt="Sort Category">ยกเลิก</a>
+		<a id="btn-sort" class="btn btn-primary" href="#" alt="Sort Category" style="min-width:114px;">Arrange menu order</a>
+		<a id="btn-sort-cancel" class="btn btn-warning hide" href="#" alt="Sort Category">Cancel</a>
 		<div  class="tree well">
 			<ul>
 				<li><span><i class="fa fa-home fa-fw"></i>Root</span>
@@ -104,7 +104,7 @@
 		                    {{ Form::close() }}
 		                    {{ link_to_route('admin..menus.edit', 'Edit', array($menu->id), array('class' => 'btn btn-info btn-xs')) }}
 		          		</span>
-		          		<span>{{ link_to_route('admin..menus.create', 'เพิ่ม sub menu', array('menu_id' => $menu->id), array('class' => 'btn btn-primary btn-xs')) }}</span>
+		          		<span>{{ link_to_route('admin..menus.create', 'Add sub menu', array('menu_id' => $menu->id), array('class' => 'btn btn-primary btn-xs')) }}</span>
 					
 		          		<?php $submenus = Menu::where('menu_id', $menu->id)->get(); ?>
 		          		@if($submenus->count() > 0 )
@@ -118,7 +118,7 @@
 				                    {{ link_to_route('admin..menus.edit', 'Edit', array($submenu->id), array('class' => 'btn btn-info btn-xs')) }}
 				          		</span>
 
-				          		<span>{{ link_to_route('admin..menus.create', 'เพิ่ม sub menu', array('menu_id' => $submenu->id), array('class' => 'btn btn-primary btn-xs')) }}</span>
+				          		<span>{{ link_to_route('admin..menus.create', 'Add sub menu', array('menu_id' => $submenu->id), array('class' => 'btn btn-primary btn-xs')) }}</span>
 								<?php $lvsubmenus = Menu::where('menu_id', $submenu->id)->get(); ?>
 				          		@if($lvsubmenus->count() > 0 )
 				          			<ul class="sortable lv3">
@@ -142,7 +142,7 @@
 					@endforeach	
 		@else
 					<li>
-						<span>ยังไม่มี Menu</span>
+						<span>No Menu</span>
 					</li>
 		@endif	
 				</ul>
@@ -187,7 +187,7 @@ $('#btn-sort').on('click', function(){
 			items.push(menu_item);
 		});
 
-		if(sort_item.length > 0)
+		if(items.length > 0)
 		{
 			$.ajax({
 		          url: '{{ action('admin\MenusController@updateList') }}',
@@ -212,13 +212,13 @@ $('#btn-sort').on('click', function(){
 			}
 		});
 		$('.tree.well').addClass('editting');			
-		$('#btn-sort').html('บันทึก');
+		$('#btn-sort').html('Save');
 	}
 	else
 	{
 		$( ".sortable" ).sortable('disable');
 		$('.tree.well').removeClass('editting');		
-		$('#btn-sort').html('ปรับลำดับเมนู');	
+		$('#btn-sort').html('Arrange menu order');	
 	}
 });
 
@@ -227,6 +227,6 @@ $('#btn-sort-cancel').on('click', function(){
 	$('#btn-sort-cancel').toggleClass('hide');
 	$( ".sortable" ).sortable('disable');
 	$('.tree.well').removeClass('editting');			
-	$('#btn-sort').html('ปรับลำดับเมนู');		
+	$('#btn-sort').html('Arrange menu order');		
 });
 @stop

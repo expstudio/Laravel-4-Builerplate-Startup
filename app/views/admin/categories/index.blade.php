@@ -4,7 +4,7 @@
 
 <div class="row">
 	<div class="col-lg-12">
-		<h1>ประเภทโพสท์ทั้งหมด</h1>
+		<h1>All Post Category</h1>
 
         @if ($errors->any())
         	<div class="alert alert-danger">
@@ -16,9 +16,9 @@
     </div>
     <div class=" col-lg-4">
     <?php $parent_categories = Category::lists('name', 'id'); 
-    	$parent_categories = array('0' => 'ไม่มีประเภทหลัก') + $parent_categories;
+    	$parent_categories = array('0' => 'No parent category') + $parent_categories;
     	$category_id = Input::old('category_id') ? Input::old('category_id') : Input::get('category_id');
-    	$submittext = isset($category) ? 'แก้ไข' : 'เพิ่มประเภทใหม่';
+    	$submittext = isset($category) ? 'Edit' : 'Add new post category';
     ?>
     @if(!isset($category))
     	{{ Form::open(array('route' => 'admin..categories.store', 'class' => 'form-horizontal')) }}
@@ -27,32 +27,39 @@
 	@endif
 		    <div class="panel panel-default">
 		    	<div class="panel-heading">
-		            เพิ่มประเภทโพสท์
+		            Add new post category
 		        </div>
 		    	<div class="panel-body">
 		    		<div class="form-group">
 			            
-			            <div class="col-sm-12">{{ Form::label('name_th', 'ชื่อภาษาไทย:', array('class'=>'control-label')) }}
-			              {{ Form::text('name_th', Input::old('name_th'), array('class'=>'form-control', 'placeholder'=>'ชื่อภาษาไทย')) }}
+			            <div class="col-sm-12">{{ Form::label('name_th', 'Name Default:', array('class'=>'control-label')) }}
+			              {{ Form::text('name_th', Input::old('name_th'), array('class'=>'form-control', 'placeholder'=>'Name Default')) }}
 			            </div>
 			        </div>
 
 		    		<div class="form-group">
 			            <div class="col-sm-12">
-			            {{ Form::label('name_en', 'ชื่อภาษาอังกฤษ:', array('class'=>'control-label')) }}
-			              {{ Form::text('name_en', Input::old('name_en'), array('class'=>'form-control', 'placeholder'=>'ชื่อภาษาอังกฤษ')) }}
+			            {{ Form::label('name_en', 'Name English:', array('class'=>'control-label')) }}
+			              {{ Form::text('name_en', Input::old('name_en'), array('class'=>'form-control', 'placeholder'=>'Name English')) }}
+			            </div>
+			        </div>
+
+			        <div class="form-group">
+			            <div class="col-sm-12">
+			            {{ Form::label('slug', 'Friendly Url:', array('class'=>'control-label')) }}
+			              {{ Form::text('slug', Input::old('slug'), array('class'=>'form-control', 'placeholder'=>'Friendly Url')) }}
 			            </div>
 			        </div>
 
 		    		<div class="form-group">
 			            <div class="col-sm-12">
-			            {{ Form::label('category_id', 'ประเภทหลัก:', array('class'=>'control-label')) }}
+			            {{ Form::label('category_id', 'Parent category:', array('class'=>'control-label')) }}
 			              {{ Form::select('category_id', $parent_categories, $category_id, array('class'=>'form-control', 'placeholder'=>'ประเภทหลัก')) }}
 			            </div>
 			        </div>
 				</div>
 				<div class="panel-footer">
-       				 {{ Form::submit($submittext, array('class' => 'btn  btn-primary', 'data-disable-with'=>"กำลังบันทึก...")) }}
+       				 {{ Form::submit($submittext, array('class' => 'btn  btn-primary', 'data-disable-with'=>"Saving...")) }}
 	            </div>
 		    </div>
 		{{ Form::close() }}
@@ -74,7 +81,7 @@
 		                    {{ Form::close() }}
 		                    {{ link_to_route('admin..categories.edit', 'Edit', array($category->id), array('class' => 'btn btn-info btn-xs')) }}
 		          		</span>
-		          		<span>{{ link_to_route('admin..categories.create', 'เพิ่ม sub category', array('category_id' => $category->id), array('class' => 'btn btn-primary btn-xs')) }}</span>
+		          		<span>{{ link_to_route('admin..categories.create', 'Add sub category', array('category_id' => $category->id), array('class' => 'btn btn-primary btn-xs')) }}</span>
 					
 		          		<?php $subcategories = Category::where('category_id', $category->id)->get(); ?>
 		          		@if($subcategories->count() > 0 )
@@ -95,7 +102,7 @@
 					@endforeach	
 		@else
 					<li>
-						<span>ยังไม่มีประเภทโพสท์</span>
+						<span>No category</span>
 					</li>
 		@endif	
 				</ul>

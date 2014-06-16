@@ -4,7 +4,7 @@
 
 <div class="row">
 	<div class="col-lg-12">
-		<h1>โพสท์ทั้งหมด</h1>
+		<h1>All Posts</h1>
 
         @if ($errors->any())
         	<div class="alert alert-danger">
@@ -15,7 +15,7 @@
         @endif
     </div>
 
-	<p>{{ link_to_route('admin..posts.create', 'เพิ่มโพสท์ใหม่', null, array('class' => 'btn btn-lg btn-success pull-right')) }}</p>
+	<p>{{ link_to_route('admin..posts.create', 'Add new post', null, array('class' => 'btn btn-lg btn-success pull-right')) }}</p>
 
 </div>
 @if ($posts->count())
@@ -23,9 +23,9 @@
 		<thead>
 			<tr>
 				<th>ID</th>
-				<th>หัวข้อโพสท์</th>
-				<th>สถานะ</th>
-				<th>วันที่</th>
+				<th>Title</th>
+				<th>Status</th>
+				<th>Created Date</th>
 				<th>&nbsp;</th>
 			</tr>
 		</thead>
@@ -52,7 +52,7 @@
 	</table>
 	<?php echo $posts->links(); ?>
 @else
-	ยังไม่มีโพสท์
+	No Post
 @endif
 
 @stop

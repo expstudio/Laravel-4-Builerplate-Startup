@@ -12,12 +12,12 @@
                         <span class="fa arrow"></span>
                         </a>
                         <ul class="nav nav-second-level">
-                            <li><a href="{{ action('admin\PostsController@create'); }}"><i class="fa fa-plus-square-o"></i> เพิ่มโพสท์</a></li>
-                            <li><a href="{{ action('admin\PostsController@index'); }}"><i class="fa fa-th"></i> รายการโพสท์ทั้งหมด</a></li>
-                            <li><a href="{{ action('admin\CategoriesController@index'); }}"><i class="fa fa-th-list"></i> ประเภทโพสท์</a></li>
+                            <li><a href="{{ action('admin\PostsController@create'); }}"><i class="fa fa-plus-square-o"></i> Add post</a></li>
+                            <li><a href="{{ action('admin\PostsController@index'); }}"><i class="fa fa-th"></i> All Posts</a></li>
+                            <li><a href="{{ action('admin\CategoriesController@index'); }}"><i class="fa fa-th-list"></i> Add Category</a></li>
                         </ul>
                     </li>
-                    <li><a href="{{ action('admin\CategoriesController@index'); }}"><i class="fa fa-th-list"></i> ประเภทโพสท์</a></li>
+                    <li><a href="{{ action('admin\CategoriesController@index'); }}"><i class="fa fa-th-list"></i> Post Categories</a></li>
                     @endif
 
                     @if(Setting::ENABLE_PORTFOLIO() == true )
@@ -26,8 +26,8 @@
                         <span class="fa arrow"></span>
                         </a>
                         <ul class="nav nav-second-level">
-                            <li><a href="{{ action('admin\PortfoliosController@create'); }}"><i class="fa fa-plus-square-o"></i> เพิ่มพอร์ตโฟลิโอ</a></li>
-                            <li><a href="{{ action('admin\PortfoliosController@index'); }}"><i class="fa fa-th"></i> รายการพอร์ตโฟลิโอทั้งหมด</a></li>
+                            <li><a href="{{ action('admin\PortfoliosController@create'); }}"><i class="fa fa-plus-square-o"></i> Add Portfolio</a></li>
+                            <li><a href="{{ action('admin\PortfoliosController@index'); }}"><i class="fa fa-th"></i> All Portfolios</a></li>
                         </ul>
                     </li>
                     @endif
@@ -38,9 +38,9 @@
                         <span class="fa arrow"></span>
                         </a>
                         <ul class="nav nav-second-level">
-                            <li><a href="{{ action('admin\ProductsController@create'); }}"><i class="fa fa-plus-square-o"></i> เพิ่มสินค้า</a></li>
-                            <li><a href="{{ action('admin\ProductsController@index'); }}"><i class="fa fa-th"></i> รายการสินค้าทั้งหมด</a></li>
-                            <li><a href="{{ action('admin\ProductCategoriesController@index'); }}"><i class="fa fa-th-list"></i> ประเภทสินค้า</a></li>
+                            <li><a href="{{ action('admin\ProductsController@create'); }}"><i class="fa fa-plus-square-o"></i> Add Product</a></li>
+                            <li><a href="{{ action('admin\ProductsController@index'); }}"><i class="fa fa-th"></i> All Product</a></li>
+                            <li><a href="{{ action('admin\ProductCategoriesController@index'); }}"><i class="fa fa-th-list"></i> Product Categories</a></li>
                         </ul>
                     </li>
                     @endif
@@ -50,18 +50,18 @@
                         <span class="fa arrow"></span>
                         </a>
                         <ul class="nav nav-second-level">
-                            <li><a href="{{ action('admin\UsersController@create'); }}"><i class="fa fa-plus-square-o"></i> เพิ่มผู้ใช้งาน</a></li>
-                            <li><a href="{{ action('admin\UsersController@index'); }}"><i class="fa fa-th"></i> รายชื่อผู้ใช้งานทั้งหมด</a></li>
+                            <li><a href="{{ action('admin\UsersController@create'); }}"><i class="fa fa-plus-square-o"></i> Add User</a></li>
+                            <li><a href="{{ action('admin\UsersController@index'); }}"><i class="fa fa-th"></i> All Users</a></li>
                         </ul>
                     </li>
                     <li class="treeview{{ (strpos(Route::currentRouteAction(), 'PagesController') !== FALSE) ? " active" : ""; }}">
                         <a href="{{ action('admin\PagesController@index'); }}">
-                            <i class="fa fa-file-o fa-fw"></i> Pages
+                            <i class="fa fa-file-o fa-fw"></i> Page
                             <span class="fa arrow"></span>
                         </a>
                         <ul class="nav nav-second-level">
-                            <li><a href="{{ action('admin\PagesController@create'); }}"><i class="fa fa-plus-square-o"></i> เพิ่มเพจ</a></li>
-                            <li><a href="{{ action('admin\PagesController@index'); }}"><i class="fa fa-th"></i> รายการเพจทั้งหมด</a></li>
+                            <li><a href="{{ action('admin\PagesController@create'); }}"><i class="fa fa-plus-square-o"></i> Add Page</a></li>
+                            <li><a href="{{ action('admin\PagesController@index'); }}"><i class="fa fa-th"></i> All Pages</a></li>
                         </ul>
                     </li>
                     <li><a href="{{ action('admin\MenusController@index'); }}"><i class="fa fa-list fa-fw"></i> Menu</a>

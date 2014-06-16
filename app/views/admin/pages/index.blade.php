@@ -4,7 +4,7 @@
 
 <div class="row">
 	<div class="col-lg-12">
-		<h1>เพจทั้งหมด</h1>
+		<h1>All Page</h1>
 
         @if ($errors->any())
         	<div class="alert alert-danger">
@@ -31,7 +31,7 @@
                     {{ link_to_route('admin..pages.edit', 'Edit', array($page->id), array('class' => 'btn btn-info btn-xs')) }}
                     {{ link_to_route('pages.show', 'View', array($page->slug), array('class' => 'btn btn-success btn-xs', 'target' => '_blank')) }}
           		</span>
-          		<span>{{ link_to_route('admin..pages.create', 'เพิ่ม subpage', array('page_id' => $page->id), array('class' => 'btn btn-primary btn-xs')) }}</span>
+          		<span>{{ link_to_route('admin..pages.create', 'Add subpage', array('page_id' => $page->id), array('class' => 'btn btn-primary btn-xs')) }}</span>
 				<span><a href="{{ url(action('admin\PageTranslationsController@set_translation', $page->id)) }}">{{ HTML::image(url('/assets/images/en-flag.png'), 'Set English translation', array('style' => 'height:22px; width:auto;')) }}</a></span>
           		<?php $subpages = Page::where('parent_id', $page->id)->get(); ?>
           		@if($subpages->count() > 0 )
@@ -46,7 +46,7 @@
 
                         {{ link_to_route('pages.show', 'View', array($subpage->slug), array('class' => 'btn btn-success btn-xs', 'target' => '_blank')) }}
 		          		</span>
-		          		<span>{{ link_to_route('admin..pages.create', 'เพิ่ม subpage', array('page_id' => $subpage->id), array('class' => 'btn btn-primary btn-xs')) }}</span>
+		          		<span>{{ link_to_route('admin..pages.create', 'Add subpage', array('page_id' => $subpage->id), array('class' => 'btn btn-primary btn-xs')) }}</span>
 						<span><a href="{{ url(action('admin\PageTranslationsController@set_translation', $subpage->id)) }}">{{ HTML::image(url('/assets/images/en-flag.png'), 'Set English translation', array('style' => 'height:22px; width:auto;')) }}</a></span>
 		          		<?php $lv3_subpages = Page::where('parent_id', $subpage->id)->get(); ?>
 		          		@if($lv3_subpages->count() > 0 )
@@ -73,11 +73,11 @@
 			@endforeach	
 @else
 			<li>
-				<span>ยังไม่มีเพจ</span>
+				<span>ยังNo เพจ</span>
 			</li>
 @endif	
 			<li>
-				<span>{{ link_to_route('admin..pages.create', 'สร้างเพจใหม่', null, array('class' => 'btn btn-xs btn-success pull-right')) }}	
+				<span>{{ link_to_route('admin..pages.create', 'New Page', null, array('class' => 'btn btn-xs btn-success pull-right')) }}	
          		</span>
 			</li>
 		</ul>

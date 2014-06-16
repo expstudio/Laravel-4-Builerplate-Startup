@@ -5,17 +5,10 @@ class Product extends Post {
   protected $table = 'posts';
 
   public static $metas = array(
-      'price' => 'ช่วงราคา',
-      'code' => 'Product Code',
-      'living_area' => 'พื้นที่ใช้สอย',
-      'land_area' => 'พื้นที่ที่ดิน',
-      'floor' => 'จำนวนชั้น',
-      'style' => 'Style',
-      'room' => 'ห้องนอน / ห้องน้ำ',
-      'room_other' => 'ห้องแม่บ้าน / ที่จอดรถ',
-      'living_area_dimension' => 'ขนาดเส้นรอบบ้าน',
-      'land_area_dimension' => 'ขนาดที่ดิน',
-      'material_standard' => 'วัสดุมาตรฐาน'
+      'price' => 'Price Range',
+      'code' => 'Code',
+      'size' => 'Size',
+      'brand' => 'Brand',
     );
 
   public function __construct(array $attributes = array()) {

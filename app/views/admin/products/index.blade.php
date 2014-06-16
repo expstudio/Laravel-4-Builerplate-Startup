@@ -15,7 +15,7 @@
         @endif
     </div>
 
-	<p>{{ link_to_route('admin..products.create', 'เพิ่มสินค้าใหม่', null, array('class' => 'btn btn-lg btn-success pull-right')) }}</p>
+	<p>{{ link_to_route('admin..products.create', 'เพิ่มสินค้าNew', null, array('class' => 'btn btn-lg btn-success pull-right')) }}</p>
 
 </div>
 @if ($products->count())
@@ -23,10 +23,10 @@
 		<thead>
 			<tr>
 				<th>ID</th>
-				<th>code</th>
-				<th>รายการสินค้า</th>
-				<th>สถานะ</th>
-				<th>วันที่</th>
+				<th>Code</th>
+				<th>Product</th>
+				<th>Status</th>
+				<th>Created Date</th>
 				<th>&nbsp;</th>
 			</tr>
 		</thead>
@@ -41,9 +41,9 @@
 					<td>{{{ $product->created_at }}}</td>
                     <td>
                         {{ Form::open(array('style' => 'display: inline-block;', 'method' => 'DELETE', 'route' => array('admin..products.destroy', $product->id))) }}
-                            {{ Form::submit('ลบ', array('class' => 'btn btn-danger', 'data-confirm' => 'Are you sure?')) }}
+                            {{ Form::submit('Delete', array('class' => 'btn btn-danger', 'data-confirm' => 'Are you sure?')) }}
                         {{ Form::close() }}
-                        {{ link_to_route('admin..products.edit', 'แก้ไข', array($product->id), array('class' => 'btn btn-info')) }}
+                        {{ link_to_route('admin..products.edit', 'Edit', array($product->id), array('class' => 'btn btn-info')) }}
                         <span><a href="{{ url(action('admin\ProductTranslationsController@set_translation', $product->id)) }}">
                         {{ HTML::image(url('/assets/images/en-flag.png'), 'Set English translation', array('style' => 'height:34px; width:auto;')) }}</a>
                         </span>
@@ -55,7 +55,7 @@
 	</table>
 	<?php echo $products->links(); ?>
 @else
-	ยังไม่มีสินค้า
+	No Product
 @endif
 
 @stop

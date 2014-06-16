@@ -4,7 +4,7 @@
 
 <div class="row">
     <div class="col-lg-12">
-        <h1>สร้างพอร์ตโฟลิโอใหม่</h1>
+        <h1>Add Portfolio</h1>
 
         @if ($errors->any())
         	<div class="alert alert-danger">
@@ -38,28 +38,28 @@
       <div class="tab-pane fade in active" id="body">
 
         <div class="form-group">
-            {{ Form::label('customer', 'ชื่อลูกค้า:', array('class'=>'col-md-2 control-label')) }}
+            {{ Form::label('customer', 'Customer:', array('class'=>'col-md-2 control-label')) }}
             <div class="col-sm-10">
               {{ Form::text('customer', Input::old('customer'), array('class'=>'form-control', 'placeholder'=>'Customer Name')) }}
             </div>
         </div>
 
         <div class="form-group">
-            {{ Form::label('preview_path', 'ลิงค์พรีวิว:', array('class'=>'col-md-2 control-label')) }}
+            {{ Form::label('preview_path', 'Link Preview:', array('class'=>'col-md-2 control-label')) }}
             <div class="col-sm-10">
               {{ Form::text('preview_path', Input::old('preview_path'), array('class'=>'form-control', 'placeholder'=>'Preview Path')) }}
             </div>
         </div>
 
         <div class="form-group">
-            {{ Form::label('site_url', 'ที่อยู่เว็บจริง:', array('class'=>'col-md-2 control-label')) }}
+            {{ Form::label('site_url', 'Site url:', array('class'=>'col-md-2 control-label')) }}
             <div class="col-sm-10">
               {{ Form::text('site_url', Input::old('site_url'), array('class'=>'form-control', 'placeholder'=>'Site Url')) }}
             </div>
         </div>
 
         <div class="form-group">
-            {{ Form::label('content', 'เนื้อหา:', array('class'=>'col-md-2 control-label')) }}
+            {{ Form::label('content', 'Content:', array('class'=>'col-md-2 control-label')) }}
             <div class="col-sm-10">
               {{ Form::textarea('content', Input::old('content'), array('id'=>'editor', 'placeholder'=>'Content')) }}
             </div>
@@ -68,35 +68,35 @@
 
       <div class="tab-pane fade" id="images">
         <div class="form-group">
-            {{ Form::label('cover', 'รูปปก:', array('class'=>'col-md-2 control-label')) }}
+            {{ Form::label('cover', 'Cover:', array('class'=>'col-md-2 control-label')) }}
             <div class="col-sm-10">
               {{ Form::file('cover', Input::old('cover'), array('class'=>'form-control')) }}
             </div>
         </div>
         
         <div class="form-group">
-            {{ Form::label('desktop', 'รูปบนพีซี:', array('class'=>'col-md-2 control-label')) }}
+            {{ Form::label('desktop', 'PC Cover:', array('class'=>'col-md-2 control-label')) }}
             <div class="col-sm-10">
               {{ Form::file('desktop', Input::old('desktop'), array('class'=>'form-control')) }}
             </div>
         </div>
         
         <div class="form-group">
-            {{ Form::label('tablet', 'รูปบนแท็บเล็ต:', array('class'=>'col-md-2 control-label')) }}
+            {{ Form::label('tablet', 'Tablet Cover:', array('class'=>'col-md-2 control-label')) }}
             <div class="col-sm-10">
               {{ Form::file('tablet', Input::old('tablet'), array('class'=>'form-control')) }}
             </div>
         </div>
         
         <div class="form-group">
-            {{ Form::label('mobile', 'รูปบนมือถือ:', array('class'=>'col-md-2 control-label')) }}
+            {{ Form::label('mobile', 'Mobile Cover:', array('class'=>'col-md-2 control-label')) }}
             <div class="col-sm-10">
               {{ Form::file('mobile', Input::old('mobile'), array('class'=>'form-control')) }}
             </div>
         </div>
         
         <div class="form-group">
-          <label  class="col-md-2 control-label">รูปสไลด์:</label>
+          <label  class="col-md-2 control-label">Slides:</label>
           <div id="sortable" class="dropzone dz-clickable dropzone-previews col-md-10">
             
             <div class="dz-default dz-message col-md-9"><span>Drop files here to upload</span></div>
@@ -108,6 +108,14 @@
       </div>
 
       <div class="tab-pane fade" id="setting">
+
+        <div class="form-group">
+            {{ Form::label('slug', 'Friendly Url:', array('class'=>'col-md-2 control-label')) }}
+            <div class="col-sm-10">
+              {{ Form::text('slug', Input::old('slug'), array('class'=>'form-control', 'placeholder'=>'Friendly Url')) }}
+            </div>
+        </div>
+        
         <div class="form-group">
             {{ Form::label('tags', 'Tags:', array('class'=>'col-md-2 control-label')) }}
             <div class="col-sm-10">

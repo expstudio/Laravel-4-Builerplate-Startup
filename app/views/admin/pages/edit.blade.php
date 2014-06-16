@@ -4,7 +4,7 @@
 
 <div class="row">
     <div class="col-lg-12">
-        <h1>แก้ไขเพจ <span><a href="{{ url(action('admin\PageTranslationsController@set_translation', $page->id)) }}">{{ HTML::image(url('/assets/images/en-flag.png'), 'Set English translation', array('style' => 'height:30px; width:auto;')) }}</a></span></h1>
+        <h1>Edit Page <span><a href="{{ url(action('admin\PageTranslationsController@set_translation', $page->id)) }}">{{ HTML::image(url('/assets/images/en-flag.png'), 'Set English translation', array('style' => 'height:30px; width:auto;')) }}</a></span></h1>
 
         @if ($errors->any())
         	<div class="alert alert-danger">
@@ -46,7 +46,7 @@
       <div class="tab-pane fade" id="images">
 
         <div class="form-group">
-            {{ Form::label('cover', 'รูปปก:', array('class'=>'col-md-2 control-label')) }}
+            {{ Form::label('cover', 'Cover:', array('class'=>'col-md-2 control-label')) }}
             <div class="col-sm-10">
               {{ HTML::image($page->cover->url('thumb'), "Cover") }}
               {{ Form::file('cover', Input::old('cover'), array('class'=>'form-control')) }}
@@ -90,7 +90,7 @@
         </div>
         @else
            <?php $parent_page = Page::lists('title', 'id'); 
-              $parent_page = array('0' => 'ไม่มีหน้าหลัก') + $parent_page;
+              $parent_page = array('0' => 'No หน้าหลัก') + $parent_page;
               $has_parent = Input::old('parent_id') ? Input::old('parent_id') : Input::get('parent_id');
             ?>
             <div class="form-group">

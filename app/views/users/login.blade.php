@@ -4,10 +4,10 @@
 	{{ Form::open(array('role' => 'form', 'route' => 'user..login.do_login')) }}
 	<fieldset>
 		<div class="form-group">
-            <input class="form-control" tabindex="1" placeholder="Username or Email" type="text" name="email" id="email" value="">
+            <input class="form-control" tabindex="1" placeholder="admin" type="text" name="email" id="email" value="">
         </div>
         <div class="form-group">
-             <input class="form-control" tabindex="2" placeholder="Password" type="password" name="password" id="password">
+             <input class="form-control" tabindex="2" placeholder="asdqwe123" type="password" name="password" id="password">
         </div>
         <div class="checkbox">
             <label>

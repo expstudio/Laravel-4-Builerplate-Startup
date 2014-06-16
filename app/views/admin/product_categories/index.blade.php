@@ -4,7 +4,7 @@
 
 <div class="row">
 	<div class="col-lg-12">
-		<h1>ประเภทสินค้าทั้งหมด</h1>
+		<h1>All Product Category</h1>
 
         @if ($errors->any())
         	<div class="alert alert-danger">
@@ -16,9 +16,9 @@
     </div>
     <div class=" col-lg-4">
     <?php $parent_product_categories = ProductCategory::lists('name', 'id'); 
-    	$parent_product_categories = [ '0' => 'ไม่มีประเภทหลัก'] + $parent_product_categories;
+    	$parent_product_categories = [ '0' => 'No parent category'] + $parent_product_categories;
     	$product_category_id = Input::old('product_category_id') ? Input::old('product_category_id') : Input::get('product_category_id');
-    	$submittext = isset($product_category) ? 'แก้ไข' : 'เพิ่มประเภทใหม่';
+    	$submittext = isset($product_category) ? 'Edit' : 'Add new category';
     ?>
     @if(!isset($product_category))
     	{{ Form::open(array('route' => 'admin..product_categories.store', 'class' => 'form-horizontal')) }}
@@ -27,32 +27,39 @@
 	@endif
 		    <div class="panel panel-default">
 		    	<div class="panel-heading">
-		            เพิ่มประเภทสินค้า
+		            Add product category
 		        </div>
 		    	<div class="panel-body">
 		    		<div class="form-group">
 			            
-			            <div class="col-sm-12">{{ Form::label('name_th', 'ชื่อภาษาไทย:', array('class'=>'control-label')) }}
-			              {{ Form::text('name_th', Input::old('name_th'), array('class'=>'form-control', 'placeholder'=>'ชื่อภาษาไทย')) }}
+			            <div class="col-sm-12">{{ Form::label('name_th', 'Name Default:', array('class'=>'control-label')) }}
+			              {{ Form::text('name_th', Input::old('name_th'), array('class'=>'form-control', 'placeholder'=>'Name Default')) }}
 			            </div>
 			        </div>
 
 		    		<div class="form-group">
 			            <div class="col-sm-12">
-			            {{ Form::label('name_en', 'ชื่อภาษาอังกฤษ:', array('class'=>'control-label')) }}
-			              {{ Form::text('name_en', Input::old('name_en'), array('class'=>'form-control', 'placeholder'=>'ชื่อภาษาอังกฤษ')) }}
+			            {{ Form::label('name_en', 'Name English:', array('class'=>'control-label')) }}
+			              {{ Form::text('name_en', Input::old('name_en'), array('class'=>'form-control', 'placeholder'=>'Name English')) }}
+			            </div>
+			        </div>
+
+			        <div class="form-group">
+			            <div class="col-sm-12">
+			            {{ Form::label('slug', 'Friendly Url:', array('class'=>'control-label')) }}
+			              {{ Form::text('slug', Input::old('slug'), array('class'=>'form-control', 'placeholder'=>'Friendly Url')) }}
 			            </div>
 			        </div>
 
 		    		<div class="form-group">
 			            <div class="col-sm-12">
-			            {{ Form::label('product_category_id', 'ประเภทหลัก:', array('class'=>'control-label')) }}
+			            {{ Form::label('product_category_id', 'Parent category:', array('class'=>'control-label')) }}
 			              {{ Form::select('product_category_id', $parent_product_categories, $product_category_id, array('class'=>'form-control', 'placeholder'=>'ประเภทหลัก')) }}
 			            </div>
 			        </div>
 				</div>
 				<div class="panel-footer">
-       				 {{ Form::submit($submittext, array('class' => 'btn  btn-primary', 'data-disable-with'=>"กำลังบันทึก...")) }}
+       				 {{ Form::submit($submittext, array('class' => 'btn  btn-primary', 'data-disable-with'=>"Saving...")) }}
 	            </div>
 		    </div>
 		{{ Form::close() }}
@@ -74,7 +81,7 @@
 		                    {{ Form::close() }}
 		                    {{ link_to_route('admin..product_categories.edit', 'Edit', array($product_category->id), array('class' => 'btn btn-info btn-xs')) }}
 		          		</span>
-		          		<span>{{ link_to_route('admin..product_categories.create', 'เพิ่ม sub product_category', array('product_category_id' => $product_category->id), array('class' => 'btn btn-primary btn-xs')) }}</span>
+		          		<span>{{ link_to_route('admin..product_categories.create', 'Add sub product_category', array('product_category_id' => $product_category->id), array('class' => 'btn btn-primary btn-xs')) }}</span>
 					
 		          		<?php $subproduct_categories = ProductCategory::where('product_category_id', $product_category->id)->get(); ?>
 		          		@if($subproduct_categories->count() > 0 )
@@ -95,7 +102,7 @@
 					@endforeach	
 		@else
 					<li>
-						<span>ยังไม่มีประเภทสินค้า</span>
+						<span>No product category</span>
 					</li>
 		@endif	
 				</ul>

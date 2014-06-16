@@ -4,7 +4,7 @@
 
 <div class="row">
 	<div class="col-lg-12">
-		<h1>พอร์ตโฟลิโอทั้งหมด</h1>
+		<h1>All Portfolio</h1>
 
         @if ($errors->any())
         	<div class="alert alert-danger">
@@ -15,7 +15,7 @@
         @endif
     </div>
 
-<p>{{ link_to_route('admin..portfolios.create', 'เพิ่มพอร์ตโฟลิโอใหม่', null, array('class' => 'btn btn-lg btn-success pull-right')) }}</p>
+<p>{{ link_to_route('admin..portfolios.create', 'Add portfolio', null, array('class' => 'btn btn-lg btn-success pull-right')) }}</p>
 
 </div>
 @if ($portfolios->count())
@@ -23,9 +23,9 @@
 		<thead>
 			<tr>
 				<th>ID</th>
-				<th>หัวข้อพอร์ตโฟลิโอ</th>
-				<th>สถานะ</th>
-				<th>วันที่</th>
+				<th>Title</th>
+				<th>Status</th>
+				<th>Created Date</th>
 				<th>&nbsp;</th>
 			</tr>
 		</thead>
@@ -53,7 +53,7 @@
 	</table>
 	<?php echo $portfolios->links(); ?>
 @else
-	ยังไม่มีพอร์ตโฟลิโอ
+	No portfolio
 @endif
 
 @stop

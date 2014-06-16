@@ -21,7 +21,7 @@ class PortfoliosController extends BaseController {
 	 */
 	public function index()
 	{
-		$portfolios = $this->portfolio->orderBy('id', 'desc')->paginate(20);
+		$portfolios = $this->portfolio->orderBy('id', 'desc')->paginate(10);
     	return View::make('portfolios.index', compact('portfolios'));
 	}
 

@@ -15,7 +15,7 @@
         @endif
     </div>
 
-	<p>{{ link_to_route('admin..users.create', 'เพิ่มผู้ใช้ใหม่', null, array('class' => 'btn btn-lg btn-success pull-right')) }}</p>
+	<p>{{ link_to_route('admin..users.create', 'เพิ่มผู้ใช้New', null, array('class' => 'btn btn-lg btn-success pull-right')) }}</p>
 
 </div>
 @if ($users->count())
@@ -50,7 +50,7 @@
 	</table>
 	<?php echo $users->links(); ?>
 @else
-	ยังไม่มีผู้ใช้
+	ยังNo ผู้ใช้
 @endif
 
 @stop

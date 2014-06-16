@@ -4,7 +4,7 @@
 
 <div class="row">
     <div class="col-lg-12">
-        <h1>แก้ไขโพสท์ <span><a href="{{ url(action('admin\PostTranslationsController@set_translation', $post->id)) }}">{{ HTML::image(url('/assets/images/en-flag.png'), 'Set English translation', array('style' => 'height:30px; width:auto;')) }}</a></span></h1>
+        <h1>Edit Post <span><a href="{{ url(action('admin\PostTranslationsController@set_translation', $post->id)) }}">{{ HTML::image(url('/assets/images/en-flag.png'), 'Set English translation', array('style' => 'height:30px; width:auto;')) }}</a></span></h1>
 
         @if ($errors->any())
         	<div class="alert alert-danger">
@@ -38,14 +38,14 @@
       <div class="tab-pane fade in active" id="body">
 
         <div class="form-group">
-            {{ Form::label('summary', 'สรุป:', array('class'=>'col-md-2 control-label')) }}
+            {{ Form::label('summary', 'Summary:', array('class'=>'col-md-2 control-label')) }}
             <div class="col-sm-10">
               {{ Form::textarea('summary', Input::old('summary'), array('placeholder'=>'Summary', 'rows' => 3, 'cols'=> 'auto', 'class' => 'col-md-12 col-sm-12')) }}
             </div>
         </div>
 
         <div class="form-group">
-            {{ Form::label('content', 'เนื้อหา:', array('class'=>'col-md-2 control-label')) }}
+            {{ Form::label('content', 'Content:', array('class'=>'col-md-2 control-label')) }}
             <div class="col-sm-10">
               {{ Form::textarea('content', Input::old('content'), array('id'=>'editor', 'placeholder'=>'Content')) }}
             </div>
@@ -54,7 +54,7 @@
 
       <div class="tab-pane fade" id="images">
         <div class="form-group">
-            {{ Form::label('cover', 'รูปปก:', array('class'=>'col-md-2 control-label')) }}
+            {{ Form::label('cover', 'Cover:', array('class'=>'col-md-2 control-label')) }}
             <div class="col-sm-10">
               {{ HTML::image($post->cover->url('thumb'), "Cover") }}
               {{ Form::file('cover', Input::old('cover'), array('class'=>'form-control')) }}
@@ -62,7 +62,7 @@
         </div>
         
         <div class="form-group">
-          <label  class="col-md-2 control-label">รูปสไลด์:</label>
+          <label  class="col-md-2 control-label">Slides:</label>
           <div id="sortable" class="dropzone dz-clickable dropzone-previews col-md-10">
             
             <div class="dz-default dz-message col-md-9"><span>Drop files here to upload</span></div>
@@ -90,14 +90,14 @@
         </div>
 
         <div class="form-group">
-            {{ Form::label('comment_status', 'อนุญาติให้แสดงความเห็น:', array('class'=>'col-md-2 control-label')) }}
+            {{ Form::label('comment_status', 'Enable comment:', array('class'=>'col-md-2 control-label')) }}
             <div class="col-sm-10">
               {{ Form::checkbox('comment_status', 'open') }}
             </div>
         </div>
 
         <div class="form-group">
-            {{ Form::label('post_status', 'เผยแพร่:', array('class'=>'col-md-2 control-label')) }}
+            {{ Form::label('post_status', 'published:', array('class'=>'col-md-2 control-label')) }}
             <div class="col-sm-10">
               {{ Form::checkbox('post_status', 'publish') }}
             </div>
@@ -105,7 +105,7 @@
 
         <?php $categories = Category::with('subCategories')->where('category_id', '0')->get(); ?>
         <div class="form-group well">
-            {{ Form::label('category_id[]', 'ประเภท:', array('class'=>'col-md-2 control-label')) }}
+            {{ Form::label('category_id[]', 'Category:', array('class'=>'col-md-2 control-label')) }}
             <div class="col-sm-10">
               <ul class="form-group">
                   @foreach($categories as $category)

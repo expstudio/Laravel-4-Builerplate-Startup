@@ -4,7 +4,7 @@
 
 <div class="row">
     <div class="col-lg-12">
-        <h1>สร้างเพจใหม่</h1>
+        <h1>Add Page</h1>
 
         @if ($errors->any())
         	<div class="alert alert-danger">
@@ -48,7 +48,7 @@
       <div class="tab-pane fade" id="images">
 
         <div class="form-group">
-            {{ Form::label('cover', 'รูปปก:', array('class'=>'col-md-2 control-label')) }}
+            {{ Form::label('cover', 'Cover:', array('class'=>'col-md-2 control-label')) }}
             <div class="col-sm-12">
               {{ Form::file('cover', Input::old('cover'), array('class'=>'form-control')) }}
             </div>

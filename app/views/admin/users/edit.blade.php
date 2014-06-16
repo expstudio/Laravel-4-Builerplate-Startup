@@ -4,7 +4,7 @@
 
 <div class="row">
     <div class="col-lg-12">
-        <h1>แก้ไขข้อมูลผู้ใช้</h1>
+        <h1>Editข้อมูลผู้ใช้</h1>
 
         @if ($errors->any())
         	<div class="alert alert-danger">

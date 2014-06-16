@@ -4,7 +4,7 @@
 
 <div class="row">
     <div class="col-lg-12">
-        <h1>แก้ไขโพสท์ภาษาอังกฤษ {{ HTML::image(url('/assets/images/en-flag.png'), 'Set English translation', array('style' => 'height:30px; width:auto;')) }}</h1>
+        <h1>Edit English Version {{ HTML::image(url('/assets/images/en-flag.png'), 'Set English translation', array('style' => 'height:30px; width:auto;')) }}</h1>
 
         @if ($errors->any())
         	<div class="alert alert-danger">
@@ -19,21 +19,21 @@
 {{ Form::model($post_translation, array('class' => 'form-horizontal', 'method' => 'POST', 'route' => array('admin..post_translations.store', $post->id))) }}
 
     <div class="form-group">
-        {{ Form::label('title', 'หัวข้อเพจ:', array('class'=>'col-md-2 control-label')) }}
+        {{ Form::label('title', 'Title:', array('class'=>'col-md-2 control-label')) }}
         <div class="col-sm-10">
               {{ Form::text('title', Input::old('title'), array('class'=>'form-control', 'placeholder'=>'Title')) }}
         </div>
     </div>
 
     <div class="form-group">
-        {{ Form::label('summary', 'สรุป:', array('class'=>'col-md-2 control-label')) }}
+        {{ Form::label('summary', 'Summary:', array('class'=>'col-md-2 control-label')) }}
         <div class="col-sm-10">
           {{ Form::textarea('summary', Input::old('summary'), array('placeholder'=>'Summary', 'rows' => 3, 'cols'=> 'auto', 'class' => 'col-md-12 col-sm-12')) }}
         </div>
     </div>
 
     <div class="form-group">
-        {{ Form::label('content', 'เนื้อหา:', array('class'=>'col-md-2 control-label')) }}
+        {{ Form::label('content', 'Content:', array('class'=>'col-md-2 control-label')) }}
         <div class="col-sm-10">
           {{ Form::textarea('content', Input::old('content'), array('id'=>'editor', 'class'=>'form-control', 'placeholder'=>'Content')) }}
         </div>

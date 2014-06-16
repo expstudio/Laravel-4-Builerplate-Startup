@@ -4,7 +4,7 @@
 
 <div class="row">
     <div class="col-lg-12">
-        <h1>ตั้งค่าเว็บไซต์</h1>
+        <h1>Site setting</h1>
 
         @if ($errors->any())
         	<div class="alert alert-danger">
@@ -49,21 +49,21 @@
         </div>
 
         <div class="form-group">
-            {{ Form::label('enable_post', 'เปิดใช้งาน โพสท์:', array('class'=>'col-md-2 control-label')) }}
+            {{ Form::label('enable_post', 'Enable post:', array('class'=>'col-md-2 control-label')) }}
             <div class="col-sm-10">
               {{ Form::checkbox('enable_post', Input::old('enable_post')) }}
             </div>
         </div>
 
         <div class="form-group">
-            {{ Form::label('enable_portfolio', 'เปิดใช้งาน พอร์ตโฟลิโอ:', array('class'=>'col-md-2 control-label')) }}
+            {{ Form::label('enable_portfolio', 'Enable portfolio:', array('class'=>'col-md-2 control-label')) }}
             <div class="col-sm-10">
               {{ Form::checkbox('enable_portfolio', Input::old('enable_portfolio')) }}
             </div>
         </div>
 
         <div class="form-group">
-            {{ Form::label('enable_portfolio', 'เปิดใช้งาน สินค้า:', array('class'=>'col-md-2 control-label')) }}
+            {{ Form::label('enable_portfolio', 'Enable product:', array('class'=>'col-md-2 control-label')) }}
             <div class="col-sm-10">
               {{ Form::checkbox('enable_product', Input::old('enable_product')) }}
             </div>

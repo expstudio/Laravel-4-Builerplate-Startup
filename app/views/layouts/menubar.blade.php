@@ -8,7 +8,7 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="/#">
-                        EXP Studio Laravel Startup Boilerplate
+                        {{ Setting::SITE_TITLE() }}
                     </a>
                 </div>
 
