@@ -31,7 +31,7 @@ class PagesController extends \BaseController {
 	 */
 	public function index()
 	{
-		$pages = Page::with('subPages')->where('parent_id', '0')->get();
+		$pages = Page::with('subPages')->where('parent_id', '=', '0')->orWhere('parent_id', '=', '')->get();
 
 		return View::make('admin.pages.index', compact('pages'));
 	}

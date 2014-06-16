@@ -24,7 +24,7 @@ class LaraClip extends Model
 	 *
 	 * @var array
 	 */
-	protected $attachedFiles = array();
+	public $attachedFiles = array();
 
 	/**
 	 * Accessor method for the $attachedFiles property.
@@ -73,20 +73,29 @@ class LaraClip extends Model
 	public static function bootLaraclip()
 	{
 		static::saved(function($instance) {
-			foreach($instance->attachedFiles as $attachedFile) {
-				$attachedFile->afterSave($instance);
+			if(is_array($instance->attachedFiles))
+			{
+				foreach($instance->attachedFiles as $attachedFile) {
+					$attachedFile->afterSave($instance);
+				}
 			}
 		});
 
 		static::deleting(function($instance) {
-			foreach($instance->attachedFiles as $attachedFile) {
-				$attachedFile->beforeDelete($instance);
+			if(is_array($instance->attachedFiles))
+			{
+				foreach($instance->attachedFiles as $attachedFile) {
+					$attachedFile->beforeDelete($instance);
+				}
 			}
 		});
 
 		static::deleted(function($instance) {
-			foreach($instance->attachedFiles as $attachedFile) {
-				$attachedFile->afterDelete($instance);
+			if(is_array($instance->attachedFiles))
+			{
+				foreach($instance->attachedFiles as $attachedFile) {
+					$attachedFile->afterDelete($instance);
+				}
 			}
 		});
 	}

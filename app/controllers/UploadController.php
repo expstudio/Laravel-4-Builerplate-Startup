@@ -5,7 +5,7 @@ class UploadController extends BaseController {
 	public function upload()
 	{
 		// Allowed extentions.
-		$allowedExts = array("gif", "jpeg", "jpg", "png");
+		$allowedExts = array("gif", "jpeg", "jpg", "png", 'JPG', 'JPEG', 'PNG', 'GIF');
 
 		// Get filename.
 		$temp = explode(".", $_FILES["file"]["name"]);

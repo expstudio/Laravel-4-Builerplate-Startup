@@ -122,6 +122,7 @@ return array(
 		'Expstudio\LaraClip\LaraClipServiceProvider',
 		'Pitchanon\FacebookConnect\FacebookConnectServiceProvider',
 		'Zizaco\Confide\ConfideServiceProvider',
+		'Awjudd\FeedReader\FeedReaderServiceProvider',
 	),
 
 	/*
@@ -187,7 +188,8 @@ return array(
 		'URL'             => 'Illuminate\Support\Facades\URL',
 		'Validator'       => 'Illuminate\Support\Facades\Validator',
 		'View'            => 'Illuminate\Support\Facades\View',
-		'Confide'    			=> 'Zizaco\Confide\ConfideFacade',
+		'Confide'    	  => 'Zizaco\Confide\ConfideFacade',
+    	'FeedReader'      => 'Awjudd\FeedReader\Facades\FeedReader',
 	),
 
 );

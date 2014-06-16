@@ -261,7 +261,7 @@ var uploadedFile = {};
 @foreach ($product->images as $image)
   uploadedFile = { name: "{{{ $image->id }}}", size: "{{{ $image->image_file_size }}}"};
   myDropzone.emit("addedfile", uploadedFile);
-  myDropzone.emit("thumbnail", uploadedFile, "{{{ $image->image->url('thumb') }}}");
+  myDropzone.emit("thumbnail", uploadedFile, "{{{ url($image->image->url('thumb')) }}}");
 @endforeach
 
 myDropzone.options.maxFiles = myDropzone.options.maxFiles - {{{ $product->images->count() }}};

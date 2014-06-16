@@ -76,27 +76,6 @@
             </div>
         </div>
 
-        <div class="form-group">
-            {{ Form::label('app_key', 'Facebook app key:', array('class'=>'col-md-2 control-label')) }}
-            <div class="col-sm-10">
-              {{ Form::text('app_key', Input::old('app_key'), array('class'=>'form-control', 'placeholder'=>'')) }}
-            </div>
-        </div>
-
-        <div class="form-group">
-            {{ Form::label('app_secret', 'Facebook app secret:', array('class'=>'col-md-2 control-label')) }}
-            <div class="col-sm-10">
-              {{ Form::text('app_secret', Input::old('app_secret'), array('class'=>'form-control', 'placeholder'=>'')) }}
-            </div>
-        </div>
-
-        <div class="form-group">
-            {{ Form::label('page_id', 'Facebook Page ID:', array('class'=>'col-md-2 control-label')) }}
-            <div class="col-sm-10">
-              {{ Form::text('page_id', Input::old('page_id'), array('class'=>'form-control', 'placeholder'=>'')) }}
-            </div>
-        </div>
-
 
         <div class="form-group">
             {{ Form::label(' copy_right', 'Copy right:', array('class'=>'col-md-2 control-label')) }}

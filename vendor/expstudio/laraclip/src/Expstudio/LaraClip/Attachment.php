@@ -323,6 +323,21 @@ class Attachment
 	}
 
 	/**
+	 * Generates the file system path to an uploaded file.  This is used for saving files, etc.
+	 *
+	 * @param string $styleName
+	 * @return string
+	*/
+	public function path_name($styles = '')
+	{
+		if ($this->originalFilename()) {
+			return $this->storageDriver->path($styles->name, $this);
+		}
+
+		return $this->defaultPath($styles->name);
+	}
+
+	/**
 	 * Returns the creation time of the file as originally assigned to this attachment's model.
 	 * Lives in the <attachment>_created_at attribute of the model.
 	 * This attribute may conditionally exist on the model, it is not one of the four required fields.
@@ -577,10 +592,7 @@ class Attachment
 	 */
 	protected function queueSomeForDeletion($stylesToClear)
 	{
-		$filePaths = array_map(function($styleToClear)
-		{
-			return $this->path($styleToClear);
-		}, $stylesToClear);
+		$filePaths = array_map(array($this, 'path'), $stylesToClear);
 
 		$this->queuedForDeletion = array_merge($this->queuedForDeletion, $filePaths);
     }
@@ -598,10 +610,7 @@ class Attachment
 
 		if (!$this->preserve_files)
 		{
-			$filePaths = array_map(function($style)
-			{
-				return $this->path($style->name);
-			}, $this->styles);
+			$filePaths = array_map(array($this, 'path_name'), $this->styles);
 
 			$this->queuedForDeletion = array_merge($this->queuedForDeletion, $filePaths);
 		}

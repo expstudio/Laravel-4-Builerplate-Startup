@@ -16,7 +16,7 @@
     </div>
     <div class=" col-lg-4">
     <?php $parent_categories = Category::lists('name', 'id'); 
-    	$parent_categories = [ '0' => 'ไม่มีประเภทหลัก'] + $parent_categories;
+    	$parent_categories = array('0' => 'ไม่มีประเภทหลัก') + $parent_categories;
     	$category_id = Input::old('category_id') ? Input::old('category_id') : Input::get('category_id');
     	$submittext = isset($category) ? 'แก้ไข' : 'เพิ่มประเภทใหม่';
     ?>

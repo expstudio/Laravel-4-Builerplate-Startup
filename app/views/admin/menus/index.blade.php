@@ -29,7 +29,7 @@
     </div>
     <div class=" col-lg-4">
     <?php $parent_menus = Menu::lists('title', 'id'); 
-    	$parent_menus = [ '0' => 'ไม่มี Menu หลัก'] + $parent_menus;
+    	$parent_menus = array('0' => 'ไม่มี Menu หลัก') + $parent_menus;
     	$menu_id = Input::old('menu_id') ? Input::old('menu_id') : Input::get('menu_id');
     	$submittext = isset($menu) ? 'แก้ไข' : 'เพิ่ม Menu ใหม่';
     ?>

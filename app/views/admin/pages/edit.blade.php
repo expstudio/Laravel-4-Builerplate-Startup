@@ -90,7 +90,7 @@
         </div>
         @else
            <?php $parent_page = Page::lists('title', 'id'); 
-              $parent_page = [ '0' => 'ไม่มีหน้าหลัก'] + $parent_page;
+              $parent_page = array('0' => 'ไม่มีหน้าหลัก') + $parent_page;
               $has_parent = Input::old('parent_id') ? Input::old('parent_id') : Input::get('parent_id');
             ?>
             <div class="form-group">
@@ -220,7 +220,7 @@ var uploadedFile = {};
 @foreach ($page->images as $image)
   uploadedFile = { name: "{{{ $image->id }}}", size: "{{{ $image->image_file_size }}}"};
   myDropzone.emit("addedfile", uploadedFile);
-  myDropzone.emit("thumbnail", uploadedFile, "{{{ $image->image->url('thumb') }}}");
+  myDropzone.emit("thumbnail", uploadedFile, "{{{ url($image->image->url('thumb')) }}}");
 @endforeach
 
 myDropzone.options.maxFiles = myDropzone.options.maxFiles - {{{ $page->images->count() }}};

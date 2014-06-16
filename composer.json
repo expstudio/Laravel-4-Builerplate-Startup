@@ -13,7 +13,9 @@
 	  	"way/generators": "dev-master",
 	  	"pitchanon/facebook-connect": "dev-master",
 	  	"laravelbook/ardent": "dev-master",
-	  	"zizaco/confide": "3.2.x"
+	  	"zizaco/confide": "3.2.x",
+	  	"simplepie/simplepie": "dev-master", 
+	  	"awjudd/feed-reader": "1.1.*"
 	},
 	"autoload": {
 		"classmap": [

@@ -16,3 +16,6 @@
 <Limit GET POST PUT DELETE>
   Allow from all
 </Limit>
+
+php_flag magic_quotes_gpc Off
+php_value magic_quotes_gpc Off
