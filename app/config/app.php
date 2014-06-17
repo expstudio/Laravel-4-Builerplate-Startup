@@ -189,7 +189,8 @@ return array(
 		'Validator'       => 'Illuminate\Support\Facades\Validator',
 		'View'            => 'Illuminate\Support\Facades\View',
 		'Confide'    	  => 'Zizaco\Confide\ConfideFacade',
-    	'FeedReader'      => 'Awjudd\FeedReader\Facades\FeedReader',
+    'FeedReader'      => 'Awjudd\FeedReader\Facades\FeedReader',
+    'Slugger'					=> 'Expstudio\FriendlyUrl\NonLatinSlugger'
 	),
 
 );

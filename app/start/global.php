@@ -81,67 +81,67 @@ App::down(function()
 Page::saving(function($page)
 {
   if(!$page->slug)
-    $page->slug = Str::slug($page->title);
+    $page->slug = Slugger::slug($page->title);
 });
 
 Post::saving(function($post)
 {
   if(!$post->slug)
-    $post->slug = Str::slug($post->title);
+    $post->slug = Slugger::slug($post->title);
 });
 
 Portfolio::saving(function($portfolio)
 {
   if(!$portfolio->slug)
-    $portfolio->slug = Str::slug($portfolio->title);
+    $portfolio->slug = Slugger::slug($portfolio->title);
 });
 
 Category::saving(function($category)
 {
   if(!$category->slug)
-    $category->slug = Str::slug($category->name_en);
+    $category->slug = Slugger::slug($category->name_en);
 });
 
 PageTranslation::saving(function($page)
 {
   if(!$page->slug)
-    $page->slug = Str::slug($page->title);
+    $page->slug = Slugger::slug($page->title);
 });
 
 PostTranslation::saving(function($post)
 {
   if(!$post->slug)
-    $post->slug = Str::slug($post->title);
+    $post->slug = Slugger::slug($post->title);
 });
 
 PortfolioTranslation::saving(function($portfolio)
 {
   if(!$portfolio->slug)
-    $portfolio->slug = Str::slug($portfolio->title);
+    $portfolio->slug = Slugger::slug($portfolio->title);
 });
 
 ProductTranslation::saving(function($product)
 {
   if(!$product->slug)
-    $product->slug = Str::slug($product->title);
+    $product->slug = Slugger::slug($product->title);
 });
 
 Profile::saving(function($profile)
 {
   if(!$profile->slug)
-    $profile->slug = Str::slug($profile->name);
+    $profile->slug = Slugger::slug($profile->name);
 });
 
 Tag::saving(function($tag)
 {
   if(!$tag->slug)
-    $tag->slug = Str::slug($tag->name);
+    $tag->slug = Slugger::slug($tag->name);
 });
 
 Product::saving(function($post)
 {
   if(!$post->slug)
-    $post->slug = Str::slug($post->title);
+    $post->slug = Slugger::slug($post->title);
 });
 
 require app_path().'/filters.php';

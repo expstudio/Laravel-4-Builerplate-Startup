@@ -31,8 +31,8 @@ class NonLatinSlugger {
 		$title = preg_replace('!['.preg_quote($flip).']+!u', $separator, $title);
 
 		// Remove all characters that are not the separator, letters, numbers, or whitespace.
-		$title = preg_replace('![^'.preg_quote($separator).'\pL\pN\s]+!u', '', mb_strtolower($title));
-
+		$title = preg_replace('![^'.preg_quote($separator).'ก-๙\pL\pN\s]+!u', '', mb_strtolower($title));
+    
 		// Replace all separator characters and whitespace by a single separator
 		$title = preg_replace('!['.preg_quote($separator).'\s]+!u', $separator, $title);
 
@@ -93,6 +93,13 @@ class NonLatinSlugger {
       }
 
       return $s;
+  }
+
+  protected static function getData($file)
+  {
+      $file = __DIR__ . '/Utf8/data/' . $file . '.ser';
+      if (file_exists($file)) return unserialize(file_get_contents($file));
+      else return false;
   }
 
 }
