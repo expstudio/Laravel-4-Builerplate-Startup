@@ -20,5 +20,5 @@ Documentation for the entire framework can be found on the [Laravel website](htt
 
 The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
 
-The Froala Editor is not an open sourced software but free to use under [CC NC-ND License](http://creativecommons.org/licenses/by-nc-nd/4.0/). For more information about the editor you can go to [http://editor.froala.com](http://editor.froala.com/).
+The Froala Editor is not an open sourced software but free to use under [CC NC-ND License](http://creativecommons.org/licenses/by-nc-nd/4.0/) for non-commercial websites. For more information about using the editor on commercial websites please read more about licensing on [http://editor.froala.com](http://editor.froala.com/).
 
